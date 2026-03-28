@@ -6,7 +6,7 @@ export function Hero() {
   const subtitle = "Repostería con acento".split(" ");
 
   return (
-    <section className="relative h-[100svh] flex items-center justify-start overflow-hidden">
+    <section className="relative h-[100svh] w-full flex items-center justify-start overflow-hidden">
       {/* Full Background Image */}
       <motion.div
         initial={{ scale: 1.2, filter: "blur(10px)" }}
@@ -41,7 +41,7 @@ export function Hero() {
                     type: "spring",
                     bounce: 0.4,
                   }}
-                  className="inline-block text-6xl md:text-8xl lg:text-[8rem] font-cyrillic-ext font-bold tracking-tighter text-stone-900 origin-bottom drop-shadow-sm leading-none"
+                  className="inline-block text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] font-cyrillic-ext font-bold tracking-tighter text-stone-900 origin-bottom drop-shadow-sm leading-none"
                 >
                   {letter}
                 </motion.span>
@@ -59,7 +59,7 @@ export function Hero() {
                     delay: 0.8 + i * 0.1,
                     ease: "easeOut",
                   }}
-                  className="inline-block text-2xl md:text-4xl lg:text-5xl font-serif italic text-accent"
+                  className="inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif italic text-accent"
                 >
                   {word}
                 </motion.span>
@@ -71,7 +71,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-base md:text-xl text-stone-600 mb-8 max-w-sm md:max-w-md mx-auto font-light"
+            className="text-sm sm:text-base md:text-xl text-stone-600 mb-6 sm:mb-8 max-w-xs sm:max-w-sm md:max-w-md mx-auto sm:mx-0 font-light"
           >
             Pasteles, postres y bocadillos para tus momentos más dulces.
           </motion.p>
@@ -86,7 +86,7 @@ export function Hero() {
               href="/menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden group px-10 py-4 md:py-5 bg-accent text-accent-foreground rounded-full text-lg font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all"
+              className="relative overflow-hidden group px-6 py-3 sm:px-10 sm:py-4 md:py-5 bg-accent text-accent-foreground rounded-full text-base sm:text-lg font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all"
             >
               <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] skew-x-[-45deg] group-hover:translate-x-[50%] transition-transform duration-700 ease-in-out pointer-events-none" />
               <span className="relative z-10 text-white drop-shadow-sm">Ver nuestro menú</span>
