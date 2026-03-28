@@ -53,10 +53,9 @@ export function About() {
               ingredientes de alta calidad para crear pasteles únicos e inolvidables.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              Pero somos más que una repostería — somos un lugar donde la
-              comunidad se reúne, donde las celebraciones se endulzan, y donde
-              el placer de un postre perfecto puede alegrar el día de
-              cualquiera.
+              Como parte de nuestra identidad utilizamos como coertura cada diseño
+              exclusivamente crema de mantequilla/buttercream, así como decoraciones
+              100% comestibles.
             </p>
             <div className="grid grid-cols-3 gap-4 pt-6">
               <div className="text-center">

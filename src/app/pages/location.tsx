@@ -6,7 +6,7 @@ const locations = [
     name: "Mardó – Plaza Vía",
     address: "Plaza Via, Av. Vía 2 114-2, local #4, Oropeza, 86035 Villahermosa, Tab.",
     phone: "993 278 6227",
-    hours: "Lun – Sáb: 10:00 AM – 7:00 PM",
+    hours: "Lun – Sáb: 10:00 AM – 7:00 PM\nDom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/Y39VQpTJcSd5aruJ8",
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9416835!3d18.0009146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Via!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
@@ -15,7 +15,7 @@ const locations = [
     name: "Mardó – Plaza Montecarlo",
     address: "Plaza Montecarlo, C. Ceiba local 7B, Primero de Mayo, 86190 Villahermosa, Tab.",
     phone: "993 669 3508",
-    hours: "Lun – Sáb: 10:00 AM – 7:00 PM",
+    hours: "Lun – Sáb: 10:00 AM – 7:00 PM\nDom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/r5L15KDQQLZFXxKW9",
     embedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9563462!3d17.9769507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Montecarlo!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
