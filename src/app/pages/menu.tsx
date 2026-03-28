@@ -6,109 +6,210 @@ export function Menu() {
     {
       title: "Pasteles",
       description: "Nuestros pasteles artesanales para cada celebración",
+      sectionImages: [
+        "https://images.unsplash.com/photo-1763316727676-3f3b96188def?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBjYWtlJTIwbHV4dXJ5JTIwZGVzc2VydHxlbnwxfHx8fDE3NzQwMjkwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1761110657716-1eb3cb62de97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwY2FrZSUyMGx1eHVyeSUyMHdoaXRlfGVufDF8fHx8MTc3NDAyOTAzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      ],
       items: [
         {
           name: "Pastel Clásico de Chocolate",
           price: "$450",
           description: "Capas de chocolate intenso con ganache sedoso",
-          image:
-            "https://images.unsplash.com/photo-1763316727676-3f3b96188def?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBjYWtlJTIwbHV4dXJ5JTIwZGVzc2VydHxlbnwxfHx8fDE3NzQwMjkwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
           name: "Pastel de Celebración",
           price: "Desde $600",
           description:
             "Personalizable en sabores, diseño y tamaño para tu evento",
-          image:
-            "https://images.unsplash.com/photo-1761110657716-1eb3cb62de97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwY2FrZSUyMGx1eHVyeSUyMHdoaXRlfGVufDF8fHx8MTc3NDAyOTAzNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
           name: "Cupcakes Decorados",
           price: "$280 / docena",
+          description: "Cupcakes gourmet con decoración artesanal",
+        },
+        {
+          name: "Pastel Red Velvet",
+          price: "$480",
+          description: "Bizcocho aterciopelado con frosting de queso crema",
+        },
+        {
+          name: "Pastel de Tres Leches",
+          price: "$380",
           description:
-            "Docena de cupcakes gourmet con decoración artesanal",
-          image:
-            "https://images.unsplash.com/photo-1652419536043-8018aaeaf69c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXBjYWtlcyUyMGRlY29yYXRlZCUyMGVsZWdhbnR8ZW58MXx8fHwxNzc0MDI5MDM1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            "Esponjoso bizcocho bañado en tres leches con crema batida",
+        },
+        {
+          name: "Pastel de Zanahoria",
+          price: "$420",
+          description:
+            "Con nueces pecanas y frosting de queso crema especiado",
         },
       ],
     },
     {
       title: "Postres",
       description: "Dulces tentaciones para cualquier momento",
+      sectionImages: [
+        "https://images.unsplash.com/photo-1566290194608-bb28b4e091a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVuY2glMjBwYXN0cnklMjBtYWNhcm9ucyUyMGVsZWdhbnR8ZW58MXx8fHwxNzc0MDI5MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      ],
       items: [
         {
           name: "Tarta de Frutas",
           price: "$120",
-          description:
-            "Base crujiente con crema de vainilla y frutas frescas de temporada",
-          image:
-            "https://images.unsplash.com/photo-1710077801357-96fce895714a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJ0JTIwYmVycnklMjBkZXNzZXJ0JTIwZWxlZ2FudHxlbnwxfHx8fDE3NzQwMjkwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          description: "Base crujiente con crema de vainilla y frutas frescas",
         },
         {
           name: "Macarons",
           price: "$180 / caja de 6",
           description:
             "Vainilla, chocolate, frambuesa, pistache, limón y rosa",
-          image:
-            "https://images.unsplash.com/photo-1566290194608-bb28b4e091a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVuY2glMjBwYXN0cnklMjBtYWNhcm9ucyUyMGVsZWdhbnR8ZW58MXx8fHwxNzc0MDI5MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
           name: "Éclair de Chocolate",
           price: "$85",
+          description: "Masa choux rellena de crema de chocolate con ganache",
+        },
+        {
+          name: "Crème Brûlée",
+          price: "$95",
+          description: "Cremosa natilla de vainilla con costra de caramelo",
+        },
+        {
+          name: "Panna Cotta",
+          price: "$90",
+          description: "Sedosa panna cotta con coulis de frutos rojos",
+        },
+        {
+          name: "Tiramisú",
+          price: "$110",
           description:
-            "Masa choux rellena de crema de chocolate con ganache",
-          image:
-            "https://images.unsplash.com/photo-1763316727676-3f3b96188def?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBjYWtlJTIwbHV4dXJ5JTIwZGVzc2VydHxlbnwxfHx8fDE3NzQwMjkwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+            "Capas de mascarpone, café espresso y cacao en polvo",
+        },
+        {
+          name: "Mousse de Chocolate",
+          price: "$95",
+          description: "Chocolate belga 70% con crema batida y frambuesas",
         },
       ],
     },
     {
       title: "Panadería",
       description: "Pan artesanal horneado fresco cada mañana",
+      sectionImages: [
+        "https://images.unsplash.com/photo-1723985007381-b3dd779fb8ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcm9pc3NhbnQlMjBwYWluJTIwYXUlMjBjaG9jb2xhdHxlbnwxfHx8fDE3NzQwMjkwMzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "https://images.unsplash.com/photo-1760681557187-78f31e4d6d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwcGFzdHJ5JTIwY3JvaXNzYW50JTIwYmFrZXJ5fGVufDF8fHx8MTc3NDAyOTAzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      ],
       items: [
         {
-          name: "Croissant",
+          name: "Croissant de Mantequilla",
           price: "$45",
-          description: "Mantequilla, hojaldrado y dorado a la perfección",
-          image:
-            "https://images.unsplash.com/photo-1723985007381-b3dd779fb8ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcm9pc3NhbnQlMjBwYWluJTIwYXUlMjBjaG9jb2xhdHxlbnwxfHx8fDE3NzQwMjkwMzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          description: "Hojaldrado y dorado a la perfección",
         },
         {
           name: "Pain au Chocolat",
           price: "$55",
           description: "Masa de croissant con relleno de chocolate",
-          image:
-            "https://images.unsplash.com/photo-1760681557187-78f31e4d6d29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwcGFzdHJ5JTIwY3JvaXNzYW50JTIwYmFrZXJ5fGVufDF8fHx8MTc3NDAyOTAzMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
         },
         {
           name: "Croissant de Almendra",
           price: "$60",
-          description:
-            "Croissant relleno de crema de almendra con almendras laminadas",
-          image:
-            "https://images.unsplash.com/photo-1767379755386-1b213fb63c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYW5pc2glMjBwYXN0cnklMjBmcmVzaCUyMGJha2VkfGVufDF8fHx8MTc3NDAyOTAzNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          description: "Relleno de crema de almendra con almendras laminadas",
+        },
+        {
+          name: "Baguette Artesanal",
+          price: "$40",
+          description: "Corteza crujiente con miga suave y aireada",
+        },
+        {
+          name: "Pan de Masa Madre",
+          price: "$65",
+          description: "Fermentación lenta de 48 horas con sabor profundo",
+        },
+        {
+          name: "Brioche",
+          price: "$50",
+          description: "Pan dulce con abundante mantequilla y textura sedosa",
+        },
+        {
+          name: "Danish de Frutas",
+          price: "$55",
+          description: "Hojaldre con crema pastelera y frutas de temporada",
         },
       ],
     },
     {
       title: "Bocadillos",
       description: "Delicias saladas y dulces para acompañar tu día",
+      sectionImages: [
+        "https://images.unsplash.com/photo-1710077801357-96fce895714a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJ0JTIwYmVycnklMjBkZXNzZXJ0JTIwZWxlZ2FudHxlbnwxfHx8fDE3NzQwMjkwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      ],
       items: [
         {
           name: "Colección Premium de Macarons",
           price: "$350 / caja de 12",
-          description:
-            "Incluye sabores de temporada y ediciones exclusivas",
-          image:
-            "https://images.unsplash.com/photo-1566290194608-bb28b4e091a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVuY2glMjBwYXN0cnklMjBtYWNhcm9ucyUyMGVsZWdhbnR8ZW58MXx8fHwxNzc0MDI5MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          description: "Sabores de temporada y ediciones exclusivas",
         },
         {
           name: "Tarta de Limón y Merengue",
           price: "$130",
-          description:
-            "Crema de limón cubierta con merengue tostado",
-          image:
-            "https://images.unsplash.com/photo-1710077801357-96fce895714a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YXJ0JTIwYmVycnklMjBkZXNzZXJ0JTIwZWxlZ2FudHxlbnwxfHx8fDE3NzQwMjkwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+          description: "Crema de limón cubierta con merengue tostado",
+        },
+        {
+          name: "Quiche Lorraine",
+          price: "$95",
+          description: "Base hojaldrada con tocino, gruyère y cebolla",
+        },
+        {
+          name: "Empanada de Espinaca",
+          price: "$65",
+          description: "Masa artesanal con espinaca, ricotta y nuez moscada",
+        },
+        {
+          name: "Mini Sándwich de Salmón",
+          price: "$85",
+          description: "Pan brioche con salmón ahumado y queso crema",
+        },
+        {
+          name: "Scone con Mermelada",
+          price: "$55",
+          description: "Scone de mantequilla con mermelada artesanal y crema",
+        },
+      ],
+    },
+    {
+      title: "Bebidas",
+      description: "El complemento perfecto para tus dulces favoritos",
+      sectionImages: [],
+      items: [
+        {
+          name: "Café Americano",
+          price: "$45",
+          description: "Espresso doble con agua caliente",
+        },
+        {
+          name: "Cappuccino",
+          price: "$55",
+          description: "Espresso con leche vaporizada y espuma cremosa",
+        },
+        {
+          name: "Latte de Vainilla",
+          price: "$65",
+          description: "Espresso con leche y jarabe de vainilla natural",
+        },
+        {
+          name: "Chocolate Caliente",
+          price: "$60",
+          description: "Chocolate belga con leche espumada y marshmallows",
+        },
+        {
+          name: "Té Artesanal",
+          price: "$40",
+          description: "Selección de tés de hoja suelta — Earl Grey, chamomile, matcha",
+        },
+        {
+          name: "Limonada de Lavanda",
+          price: "$55",
+          description: "Limón fresco con infusión de lavanda y miel",
         },
       ],
     },
@@ -124,11 +225,14 @@ export function Menu() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <p className="text-accent tracking-[0.3em] uppercase text-sm mb-4 font-medium">
+              Elaborado con Pasión
+            </p>
             <h1 className="text-5xl md:text-6xl font-serif text-primary mb-6">
               Nuestro Menú
             </h1>
-            <div className="w-24 h-1 bg-accent mx-auto mb-8" />
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+            <div className="w-24 h-[1px] bg-accent mx-auto mb-8" />
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Descubre nuestra selección de pasteles, postres y bocadillos
               artesanales, elaborados con los mejores ingredientes.
             </p>
@@ -137,59 +241,119 @@ export function Menu() {
       </section>
 
       {/* Menu Categories */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto space-y-20">
+      <section className="py-12 px-6">
+        <div className="max-w-5xl mx-auto">
           {menuCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.05 }}
+              className="mb-20 last:mb-0"
             >
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-serif text-primary mb-4">
+              {/* Section Header */}
+              <div className="text-center mb-10">
+                <h2 className="text-3xl md:text-4xl font-serif text-primary mb-3">
                   {category.title}
                 </h2>
-                <p className="text-foreground/70">{category.description}</p>
+                <p className="text-foreground/60 text-sm tracking-wide">
+                  {category.description}
+                </p>
+                <div className="w-16 h-[1px] bg-accent/40 mx-auto mt-4" />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.items.map((item, itemIndex) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
-                    whileHover={{ y: -5 }}
-                    className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
-                  >
-                    <div className="relative h-64 overflow-hidden">
-                      <ImageWithFallback
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                      <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full font-serif">
-                        {item.price}
+              {/* Content: Items + Images */}
+              <div
+                className={`flex flex-col ${
+                  category.sectionImages.length > 0
+                    ? categoryIndex % 2 === 0
+                      ? "lg:flex-row"
+                      : "lg:flex-row-reverse"
+                    : ""
+                } gap-10 items-start`}
+              >
+                {/* Items List */}
+                <div
+                  className={`flex-1 w-full ${
+                    category.sectionImages.length > 0 ? "lg:w-3/5" : ""
+                  }`}
+                >
+                  {category.items.map((item, itemIndex) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.4,
+                        delay: itemIndex * 0.05,
+                      }}
+                      className="group py-4 first:pt-0 last:pb-0"
+                    >
+                      {/* Name ··· Price row */}
+                      <div className="flex items-baseline gap-2">
+                        <h3 className="text-lg font-serif text-primary shrink-0 group-hover:text-accent transition-colors duration-300">
+                          {item.name}
+                        </h3>
+                        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[2rem]" />
+                        <span className="text-accent font-serif text-base shrink-0 font-medium">
+                          {item.price}
+                        </span>
                       </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-2xl font-serif text-primary mb-2">
-                        {item.name}
-                      </h3>
-                      <p className="text-foreground/70 leading-relaxed">
+                      {/* Description */}
+                      <p className="text-foreground/50 text-sm mt-1 leading-relaxed pl-0">
                         {item.description}
                       </p>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Section Images */}
+                {category.sectionImages.length > 0 && (
+                  <div className="w-full lg:w-2/5 flex flex-col gap-4">
+                    {category.sectionImages.map((img, imgIndex) => (
+                      <motion.div
+                        key={imgIndex}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.2 + imgIndex * 0.15,
+                        }}
+                        className="relative overflow-hidden rounded-lg"
+                        style={{
+                          aspectRatio:
+                            category.sectionImages.length === 1
+                              ? "4/3"
+                              : "3/2",
+                        }}
+                      >
+                        <ImageWithFallback
+                          src={img}
+                          alt={`${category.title}`}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
       </section>
+
+      {/* Decorative divider before CTA */}
+      <div className="flex items-center justify-center py-8">
+        <div className="w-2 h-2 rounded-full bg-accent/30" />
+        <div className="w-24 h-[1px] bg-accent/20 mx-3" />
+        <div className="w-3 h-3 rounded-full bg-accent/50" />
+        <div className="w-24 h-[1px] bg-accent/20 mx-3" />
+        <div className="w-2 h-2 rounded-full bg-accent/30" />
+      </div>
 
       {/* Call to Action */}
       <section className="py-20 px-6 bg-primary text-primary-foreground">
