@@ -18,8 +18,8 @@ export function GallerySlider() {
             key={i}
             className="flex-shrink overflow-hidden rounded-lg"
             style={{
-              width: "clamp(100px, 20vw, 250px)",
-              height: "clamp(150px, 5vw, 350px)",
+              width: "clamp(100px, 10vw, 250px)",
+              height: "clamp(100px, 5vw, 250px)",
             }}
           >
             <ImageWithFallback
