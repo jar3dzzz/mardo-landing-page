@@ -239,12 +239,12 @@ export function Menu() {
                       className="group py-3 sm:py-4 first:pt-0 last:pb-0"
                     >
                       {/* Name + Price row */}
-                      <div className="flex items-baseline gap-1 sm:gap-2">
-                        <h3 className="text-base sm:text-lg font-serif text-primary shrink-0 group-hover:text-accent transition-colors duration-300">
+                      <div className="flex items-baseline gap-2">
+                        <h3 className="text-base sm:text-lg font-serif text-primary group-hover:text-accent transition-colors duration-300 shrink min-w-0">
                           {item.name}
                         </h3>
-                        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[1rem] sm:min-w-[2rem] hidden sm:block" />
-                        <span className="text-accent font-serif text-sm sm:text-base shrink-0 font-medium ml-auto sm:ml-0">
+                        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[2rem] hidden sm:block" />
+                        <span className="text-accent font-serif text-sm sm:text-base font-medium shrink-0 whitespace-nowrap ml-auto sm:ml-0">
                           {item.price}
                         </span>
                       </div>
