@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 
@@ -7,6 +7,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -144,11 +145,11 @@ export function Navbar() {
                       to={link.path}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
+                      className="block"
                     >
                       <div
-                        className={`py-3 px-4 rounded-lg transition-colors ${location.pathname === link.path
+                        className={`py-3 px-4 rounded-lg transition-colors cursor-pointer ${location.pathname === link.path
                           ? "text-primary bg-secondary"
                           : "text-foreground/70"
                           }`}
