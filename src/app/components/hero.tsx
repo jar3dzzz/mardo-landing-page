@@ -82,14 +82,15 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.5, type: "spring" }}
             className="flex justify-start"
           >
-            <motion.button
+            <motion.a
+              href="/menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="relative overflow-hidden group px-10 py-4 md:py-5 bg-accent text-accent-foreground rounded-full text-lg font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all"
             >
               <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] skew-x-[-45deg] group-hover:translate-x-[50%] transition-transform duration-700 ease-in-out pointer-events-none" />
               <span className="relative z-10 text-white drop-shadow-sm">Ver nuestro menú</span>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
       </div>
