@@ -331,6 +331,7 @@ export function Menu() {
                 Ver ubicaciones
               </motion.a>
             </div>
+            <div className="w-36 h-[1px] bg-accent mx-auto mt-16" />
           </motion.div>
         </div>
       </section>

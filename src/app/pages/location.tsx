@@ -36,7 +36,7 @@ export function Location() {
             <h1 className="text-5xl md:text-6xl font-serif text-primary mb-6">
               Nuestras Ubicaciones
             </h1>
-            <div className="w-24 h-1 bg-accent mx-auto mb-8" />
+            <div className="w-24 h-[1px] bg-accent mx-auto mb-8" />
             <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               Visítanos en cualquiera de nuestras dos sucursales en
               Villahermosa, Tabasco.
@@ -146,6 +146,7 @@ export function Location() {
                 Llamar – Plaza Montecarlo
               </motion.a>
             </div>
+            <div className="w-36 h-[1px] bg-accent mx-auto mt-16" />
           </motion.div>
         </div>
       </section>
