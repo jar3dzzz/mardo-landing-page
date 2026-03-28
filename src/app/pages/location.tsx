@@ -24,7 +24,7 @@ const locations = [
 
 export function Location() {
   return (
-    <div className="min-h-screen pt-20 bg-secondary/50">
+    <div className="flex-1 flex flex-col pt-20 bg-secondary/50">
       {/* Hero Section */}
       <section className="relative py-20 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-4xl mx-auto text-center">

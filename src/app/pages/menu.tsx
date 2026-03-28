@@ -165,7 +165,7 @@ export function Menu() {
   ];
 
   return (
-    <div className="min-h-screen pt-20 bg-secondary/50 overflow-x-hidden">
+    <div className="flex-1 flex flex-col pt-20 bg-secondary/50 overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative py-20 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-4xl mx-auto text-center">

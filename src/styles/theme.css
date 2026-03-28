@@ -124,8 +124,14 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    font-size: var(--font-size);
+    background-color: var(--secondary);
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--primary);
+    @apply text-foreground;
   }
 
   /**
