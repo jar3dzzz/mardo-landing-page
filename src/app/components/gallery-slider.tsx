@@ -2,7 +2,7 @@ import { InfiniteSlider } from "./infinite-slider";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const sliderImages = [
-  "/collab-12.png",
+  "/collab-1.png",
   "/collab-2.png",
   "/collab-3.png",
   "/collab-4.png",
