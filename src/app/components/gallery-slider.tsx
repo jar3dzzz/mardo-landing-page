@@ -6,8 +6,9 @@ const sliderImages = [
   "/collab-2.png",
   "/collab-3.png",
   "/collab-4.png",
-  "/collab-52.png",
+  "/collab-5.png",
   "/collab-6.png",
+  "/collab-7.png",
 ];
 
 export function GallerySlider() {
