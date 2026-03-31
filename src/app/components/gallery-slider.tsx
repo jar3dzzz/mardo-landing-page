@@ -2,11 +2,12 @@ import { InfiniteSlider } from "./infinite-slider";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const sliderImages = [
-  "/collab-1.png",
+  "/collab-12.png",
   "/collab-2.png",
   "/collab-3.png",
   "/collab-4.png",
-  "/collab-5.png",
+  "/collab-52.png",
+  "/collab-6.png",
 ];
 
 export function GallerySlider() {
