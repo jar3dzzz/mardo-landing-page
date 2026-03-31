@@ -7,21 +7,21 @@ export function Testimonials() {
 
   const testimonials = [
     {
-      name: "María González",
-      role: "Clienta frecuente",
-      text: "Los pasteles de MARDÓ son simplemente increíbles. Cada bocado es una explosión de sabor, y la presentación siempre es impecable.",
+      name: "Arturo Sánchez",
+      role: "Novio satisfecho",
+      text: "Fue increíble el dia de hoy y todos me hablan super bien de tu pastel, Te queremos mucho la novia y yo. Dios bendiga su negocio tu talento.",
       rating: 5,
     },
     {
-      name: "Carlos Hernández",
-      role: "Cliente habitual",
-      text: "Llevo más de un año pidiendo en MARDÓ y la calidad nunca baja. Los bocadillos y postres son mis favoritos — ¡son obras de arte!",
+      name: "Alejandro Betancourt",
+      role: "Reseña de Google",
+      text: "Pedí un pastel de chocolate, está riquísimo, el servicio fue muy bueno, el trato del personal también muy grato, recomiendo el lugar, los postres son muy sabrosos.",
       rating: 5,
     },
     {
-      name: "Ana López",
-      role: "Organizadora de eventos",
-      text: "Hemos encargado pasteles para muchos eventos con MARDÓ. Su atención al detalle y sabores exquisitos siempre sorprenden a nuestros invitados.",
+      name: "Edward Isaac Ayala",
+      role: "Reseña de Google",
+      text: "Muy ricos y los precios son asequibles, les recomiendo mucho el de roles :).",
       rating: 5,
     },
   ];

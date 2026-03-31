@@ -4,50 +4,7 @@ import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 export function Menu() {
   const menuCategories = [
     {
-      title: "Pasteles",
-      description: "Nuestros pasteles artesanales para cada celebración",
-      sectionImages: [
-        "/menu/menu-1.jpg",
-        "/menu/menu-2.jpg",
-      ],
-      items: [
-        {
-          name: "Pastel Clásico de Chocolate",
-          price: "$450",
-          description: "Capas de chocolate intenso con ganache sedoso",
-        },
-        {
-          name: "Pastel de Celebración",
-          price: "Desde $600",
-          description:
-            "Personalizable en sabores, diseño y tamaño para tu evento",
-        },
-        {
-          name: "Cupcakes Decorados",
-          price: "$280 / docena",
-          description: "Cupcakes gourmet con decoración artesanal",
-        },
-        {
-          name: "Pastel Red Velvet",
-          price: "$480",
-          description: "Bizcocho aterciopelado con frosting de queso crema",
-        },
-        {
-          name: "Pastel de Cuatro Leches",
-          price: "$380",
-          description:
-            "Esponjoso bizcocho bañado en cuatro leches con crema batida",
-        },
-        {
-          name: "Pastel de Zanahoria",
-          price: "$420",
-          description:
-            "Con nueces pecanas y frosting de queso crema especiado",
-        },
-      ],
-    },
-    {
-      title: "Postres",
+      title: "Menu Tienda",
       description: "Dulces tentaciones para cualquier momento",
       sectionImages: [
         "/menu/menu-3.jpg",
@@ -55,110 +12,206 @@ export function Menu() {
       ],
       items: [
         {
-          name: "Tarta de Frutas",
-          price: "$120",
-          description: "Base crujiente con crema de vainilla y frutas frescas",
+          name: "Pastel Carajillo",
+          price: "$570",
+          description: "Para 15-18 personas",
         },
         {
-          name: "Macarons",
-          price: "$180 / caja de 6",
+          name: "Pastel Ferrero",
+          price: "$450",
           description:
-            "Vainilla, chocolate, frambuesa, pistache, limón y rosa",
+            "Para 8-10 personas",
         },
         {
-          name: "Éclair de Chocolate",
-          price: "$85",
-          description: "Masa choux rellena de crema de chocolate con ganache",
+          name: "Pastel Cuatro Leches",
+          price: "$570",
+          description: "Para 15 personas",
         },
         {
-          name: "Crème Brûlée",
-          price: "$95",
-          description: "Cremosa natilla de vainilla con costra de caramelo",
+          name: "Pastel Zanahoria",
+          price: "$430",
+          description: "Para 8-10 personas",
         },
         {
-          name: "Panna Cotta",
-          price: "$90",
-          description: "Sedosa panna cotta con coulis de frutos rojos",
+          name: "Pay de Macadamia",
+          price: "$470",
+          description: "Para 8-10 personas",
         },
         {
-          name: "Tiramisú",
-          price: "$110",
+          name: "Cheesecake NY",
+          price: "$570",
           description:
-            "Capas de mascarpone, café espresso y cacao en polvo",
+            "Para 8-10 personas",
         },
         {
-          name: "Mousse de Chocolate",
-          price: "$95",
-          description: "Chocolate belga 70% con crema batida y frambuesas",
+          name: "Tarta Vasca Frutos Rojos",
+          price: "$450",
+          description:
+            "Para 8 personas",
         },
       ],
     },
     {
-      title: "Panadería",
-      description: "Pan artesanal horneado fresco cada mañana",
+      title: "Tienda",
+      description: "Postres individuales",
       sectionImages: [
         "/menu/menu-4.jpg",
         "/menu/menu-5.jpg",
       ],
       items: [
         {
-          name: "Croissant de Mantequilla",
-          price: "$45",
-          description: "Hojaldrado y dorado a la perfección",
+          name: "Rol 4 Leches",
+          price: "$80",
+          description: "Rol de canela mojado en 4 leches",
         },
         {
-          name: "Pain au Chocolat",
+          name: "Brownie Rochier",
+          price: "$80",
+          description: "Individual",
+        },
+        {
+          name: "Esfera Mardó",
+          price: "$80",
+          description: "Individual",
+        },
+        {
+          name: "Galleta Red Velvet",
           price: "$55",
-          description: "Masa de croissant con relleno de chocolate",
         },
         {
-          name: "Croissant de Almendra",
+          name: "Galleta Triple Chocolate",
           price: "$60",
-          description: "Relleno de crema de almendra con almendras laminadas",
         },
         {
-          name: "Baguette Artesanal",
-          price: "$40",
-          description: "Corteza crujiente con miga suave y aireada",
-        },
-        {
-          name: "Pan de Masa Madre",
+          name: "Galleta White Macadamia",
           price: "$65",
-          description: "Fermentación lenta de 48 horas con sabor profundo",
         },
         {
-          name: "Brioche",
-          price: "$50",
-          description: "Pan dulce con abundante mantequilla y textura sedosa",
-        },
-        {
-          name: "Danish de Frutas",
-          price: "$55",
-          description: "Hojaldre con crema pastelera y frutas de temporada",
+          name: "Brownie Tradicional",
+          price: "$60",
         },
       ],
     },
     {
-      title: "Bocadillos",
-      description: "Delicias saladas y dulces para acompañar tu día",
+      title: "Rebanadas",
+      description: "Nuestros pasteles en rebanadas",
       sectionImages: [
         "/menu/menu-6.jpg"
       ],
       items: [
         {
-          name: "Colección Premium de Macarons",
-          price: "$350 / caja de 12",
-          description: "Sabores de temporada y ediciones exclusivas",
+          name: "Tarta Vasca",
+          price: "$85",
+          description: "Tarta vasca de frutos rojos",
         },
         {
-          name: "Tarta de Limón y Merengue",
-          price: "$130",
-          description: "Crema de limón cubierta con merengue tostado",
+          name: "4 Leches Queso de Bola",
+          price: "$85",
+          description: "Pan de 4 leches con relleno de crema de queso de bola",
         },
         {
-          name: "Quiche Lorraine",
+          name: "Cheesecake NY",
           price: "$95",
-          description: "Base hojaldrada con tocino, gruyère y cebolla",
+          description: "Cheesecake NY con frutos rojos",
+        },
+        {
+          name: "Ferrero",
+          price: "$85",
+          description: "Pan de chocolate con relleno de ferrero y crema de chocolate",
+        },
+        {
+          name: "Carajillo",
+          price: "$95",
+          description: "Rebanda pastel Carajillo",
+        },
+        {
+          name: "Beso de Zanahoria",
+          price: "$130",
+          description: "Un cuarto de pastel",
+        },
+        {
+          name: "Pay de Macadamia",
+          price: "$85",
+          description: "Rebanada",
+        },
+        {
+          name: "Cheesecake Lotus",
+          price: "$115",
+          description: "Rebanada",
+        },
+      ],
+    },
+    {
+      title: "Pasteles",
+      description: "Precios base, pueden variar según tamaño y decoración",
+      sectionImages: [
+        "/menu/menu-1.jpg",
+      ],
+      items: [
+        {
+          name: "10 - 15 personas",
+          price: "$950",
+        },
+        {
+          name: "20 - 25 personas",
+          price: "$1,550",
+        },
+        {
+          name: "30 - 35 personas",
+          price: "$2,250",
+        },
+        {
+          name: "40 - 50 personas",
+          price: "$2,900",
+        },
+        {
+          name: "60 - 70 personas",
+          price: "$3,750",
+        },
+      ],
+    },
+    {
+      title: "Sabores",
+      description: "El signo $ representa un costo adicional sobre el precio base",
+      sectionImages: [
+        "/menu/menu-2.jpg",
+      ],
+      items: [
+        {
+          name: "Tradicional Queso de bola",
+          description: "Pan de mantequilla con relleno de crema de queso de bola",
+        },
+        {
+          name: "Pastel Framboisier",
+          description: "Pan de mantequilla con relleno queso crema de frambuesa",
+        },
+        {
+          name: "Dolce 4 leches",
+          description: "Pan de 4 leches con relleno de dulce de leche y crema pastelera de vainilla",
+        },
+        {
+          name: "Dolce Nuez",
+          description: "Pan de 4 leches con relleno de crema pastelera de vainilla y nuez caramelizada",
+        },
+        {
+          name: "Intenso Chocolate $",
+          description: "Pan de chocolate con relleno de ganache de chocolate semi-oscuro",
+        },
+        {
+          name: "Choco-Caramelo",
+          description: "Pan de chocolate con relleno de queso crema y caramelo suave",
+        },
+        {
+          name: "Intenso Ferrero $",
+          description: "Pan de chocolate con relleno de ferrero y crema de chocolate",
+        },
+        {
+          name: "Carajillo $",
+          description: "Pan de chocolate con relleno de licor 43 con crema de café y ganache de chocolate oscuro",
+        },
+        {
+          name: "Choco Delicia $",
+          description: "Pan de chocolate con relleno de manjar de dulce de leche",
         },
       ],
     },
