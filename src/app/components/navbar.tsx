@@ -64,9 +64,34 @@ export function Navbar() {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-4xl font-serif text-primary"
+              className="flex justify-start items-start overflow-hidden pt-2 pb-1 pr-2"
             >
-              MARDÓ
+              {"MARDÓ".split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ y: "100%", opacity: 0, rotateX: -90 }}
+                  animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.2 + i * 0.1,
+                    type: "spring",
+                    bounce: 0.4,
+                  }}
+                  className="inline-block text-4xl font-bold tracking-tighter text-primary origin-bottom drop-shadow-sm leading-none"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="text-[0.65rem] font-bold text-primary ml-0.5 mt-0.5"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                ®
+              </motion.span>
             </motion.div>
           </Link>
 

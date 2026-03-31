@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useInView } from "./use-in-view";
-import { Clock, Heart, Award, Users } from "lucide-react";
+import { Clock, Heart, Award, Users, School } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Implementation() {
@@ -24,6 +24,12 @@ export function Implementation() {
       title: "Enfoque en la comunidad",
       description:
         "Apoyamos a proveedores locales y participamos activamente en eventos de nuestra comunidad.",
+    },
+    {
+      icon: School,
+      title: "Apoyo en la formación de profesionales",
+      description:
+        "Aceptamos alumnos de diferentes universidades para realizar sus prácticas profesionales y desarrollarse en el ámbito académico y laboral",
     },
   ];
 
