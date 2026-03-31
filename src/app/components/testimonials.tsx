@@ -9,7 +9,7 @@ export function Testimonials() {
     {
       name: "Arturo Sánchez",
       role: "Novio satisfecho",
-      text: "Fue increíble el dia de hoy y todos me hablan super bien de tu pastel, Te queremos mucho la novia y yo. Dios bendiga su negocio tu talento.",
+      text: "Fue increíble el dia de hoy y todos me hablan super bien de tu pastel, te queremos mucho la novia y yo. Dios bendiga su negocio y talento.",
       rating: 5,
     },
     {

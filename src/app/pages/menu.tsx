@@ -52,7 +52,7 @@ export function Menu() {
       ],
     },
     {
-      title: "Tienda",
+      title: "Postres",
       description: "Postres individuales",
       sectionImages: [
         "/menu/menu-5.jpg",
@@ -181,6 +181,8 @@ export function Menu() {
       description: "El signo $ representa un costo adicional sobre el precio base",
       sectionImages: [
         "/menu/menu-2.jpg",
+        "/menu/menu-10.jpg",
+        "/menu/menu-11.jpg",
       ],
       items: [
         {

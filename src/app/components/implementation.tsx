@@ -29,7 +29,7 @@ export function Implementation() {
       icon: School,
       title: "Apoyo en la formación de profesionales",
       description:
-        "Aceptamos alumnos de diferentes universidades para realizar sus prácticas profesionales y desarrollarse en el ámbito académico y laboral",
+        "Aceptamos alumnos de diferentes universidades para realizar sus prácticas profesionales y desarrollarse en el ámbito académico y laboral.",
     },
   ];
 
