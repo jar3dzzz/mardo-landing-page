@@ -77,7 +77,7 @@ export function Navbar() {
                     type: "spring",
                     bounce: 0.4,
                   }}
-                  className="inline-block text-4xl font-bold tracking-tighter text-primary origin-bottom drop-shadow-sm leading-none"
+                  className="inline-block text-4xl font-bold tracking-tighter text-primary origin-bottom drop-shadow-md leading-none"
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 >
                   {letter}

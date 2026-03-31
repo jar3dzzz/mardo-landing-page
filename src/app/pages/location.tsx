@@ -16,7 +16,7 @@ const locations = [
     name: "Mardó – Plaza Montecarlo",
     address: "Plaza Montecarlo, C. Ceiba local 7B, Primero de Mayo, 86190 Villahermosa, Tab.",
     phone: "993 669 3508",
-    hours: "Lun – Sáb: 10:00 AM – 7:00 PM",
+    hours: "Mar – Sáb: 10:00 AM – 7:00 PM",
     hours2: "Dom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/r5L15KDQQLZFXxKW9",
     embedUrl:

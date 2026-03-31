@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 
 export function Hero() {
-  const title = "MARDÓ".split("");
   const subtitle = "Repostería con acento".split(" ");
 
   return (
@@ -28,42 +27,35 @@ export function Hero() {
       {/* Text Content – Overlaid */}
       <div className="relative z-10 flex flex-col items-start justify-center px-8 md:px-16 lg:px-24 mb-32 md:mb-0">
         <div className="max-w-xl text-left">
-          <h1 className="flex flex-col mb-4 md:mb-6">
-            <div className="flex justify-start overflow-hidden pt-4 pb-2 -mb-2">
-              {title.map((letter, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ y: "100%", opacity: 0, rotateX: -90 }}
-                  animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.2 + i * 0.1,
-                    type: "spring",
-                    bounce: 0.4,
-                  }}
-                  className="inline-block text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] font-cyrillic-ext font-bold tracking-tighter text-stone-900 origin-bottom drop-shadow-sm leading-none"
-                >
-                  {letter}
-                </motion.span>
-              ))}
+          <h1 className="flex flex-col mb-4 md:mb-2">
+            <div className="flex justify-start overflow-hidden pt-6 md:mb-0">
+              <motion.img
+                src="/logo/alt-logo.png"
+                alt="MARDO Logo"
+                initial={{ y: 40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.2,
+                  ease: "easeOut",
+                }}
+                className="w-auto h-30 sm:h-36 md:h-48 lg:h-52 object-contain drop-shadow-md"
+              />
             </div>
 
-            <div className="flex flex-wrap justify-start gap-x-2 mt-2 md:mt-4 overflow-hidden">
-              {subtitle.map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.8 + i * 0.1,
-                    ease: "easeOut",
-                  }}
-                  className="inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif italic text-accent"
-                >
-                  {word}
-                </motion.span>
-              ))}
+            <div className="flex justify-start overflow-hidden">
+              <motion.img
+                src="/logo/sub-logo.png"
+                alt="MARDO Logo"
+                initial={{ y: 40, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.2,
+                  ease: "easeOut",
+                }}
+                className="w-auto h-16 sm:h-16 md:h-24 lg:h-28 object-contain drop-shadow-md"
+              />
             </div>
           </h1>
 
@@ -71,7 +63,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-sm sm:text-base md:text-xl text-stone-600 mb-6 sm:mb-8 max-w-xs sm:max-w-sm md:max-w-md mx-auto sm:mx-0 font-light"
+            className="text-sm sm:text-base md:text-xl text-stone-600 py-4 mb-6 sm:mb-6 max-w-xs sm:max-w-sm md:max-w-md font-light text-left"
           >
             Pasteles, postres y bocadillos para tus momentos más dulces.
           </motion.p>
@@ -86,7 +78,7 @@ export function Hero() {
               href="/menu"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden group px-6 py-3 sm:px-10 sm:py-4 md:py-5 bg-accent text-accent-foreground rounded-full text-base sm:text-lg font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all"
+              className="relative overflow-hidden group px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-accent text-accent-foreground rounded-full text-sm sm:text-base md:text-lg font-semibold tracking-wide shadow-xl hover:shadow-2xl transition-all"
             >
               <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-[150%] skew-x-[-45deg] group-hover:translate-x-[50%] transition-transform duration-700 ease-in-out pointer-events-none" />
               <span className="relative z-10 text-white drop-shadow-sm">Ver nuestro menú</span>
