@@ -224,7 +224,8 @@ export function Menu() {
           description: "Pan de 4 leches con relleno de crema pastelera de vainilla y nuez caramelizada",
         },
         {
-          name: "Intenso Chocolate $",
+          name: "Intenso Chocolate",
+          price: "$",
           description: "Pan de chocolate con relleno de ganache de chocolate semi-oscuro",
         },
         {
@@ -232,15 +233,18 @@ export function Menu() {
           description: "Pan de chocolate con relleno de queso crema y caramelo suave",
         },
         {
-          name: "Intenso Ferrero $",
+          name: "Intenso Ferrero",
+          price: "$",
           description: "Pan de chocolate con relleno de ferrero y crema de chocolate",
         },
         {
-          name: "Carajillo $",
+          name: "Carajillo",
+          price: "$",
           description: "Pan de chocolate con relleno de licor 43 con crema de café y ganache de chocolate oscuro",
         },
         {
-          name: "Choco Delicia $",
+          name: "Choco Delicia",
+          price: "$",
           description: "Pan de chocolate con relleno de manjar de dulce de leche",
         },
       ],
