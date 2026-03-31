@@ -1,7 +1,29 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
+import { X } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 export function Menu() {
+  const today = new Date().getDay();
+
+  // Imágenes por día de la semana (Domingo=0, Lunes=1, ..., Sábado=6)
+  const dailyPromos = [
+    "/promo-1.jpg",   // 0 (Domingo)
+    "/promo-1.jpg",    // 1 (Lunes)
+    "/promo-1.jpg",    // 2 (Martes)
+    "/promo-2.jpg",    // 3 (Miércoles)
+    "/promo-2.jpg",   // 4 (Jueves)
+    "/promo-1.jpg",    // 5 (Viernes)
+    "/promo-1.jpg"  // 6 (Sábado)
+  ];
+
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    // Mostrar el modal automáticamente al cargar la página
+    setShowModal(true);
+  }, []);
+
   const menuCategories = [
     {
       title: "Menu Tienda",
@@ -227,6 +249,49 @@ export function Menu() {
 
   return (
     <div className="flex-1 flex flex-col pt-20 bg-secondary/50 overflow-x-hidden">
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={() => setShowModal(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-sm bg-background border border-border overflow-hidden shadow-2xl rounded-2xl p-6 sm:p-8 z-10 text-center"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute right-3 top-3 text-foreground/50 hover:text-foreground hover:bg-muted rounded-full transition-colors"
+                aria-label="Cerrar modal"
+              >
+                <X size={20} />
+              </button>
+
+              <img
+                src={dailyPromos[today]}
+                alt="Especial del día"
+                className="w-full h-auto rounded-xl shadow-sm mb-6 object-cover"
+              />
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowModal(false)}
+                className="w-full py-3 bg-accent text-accent-foreground rounded-full text-sm font-semibold tracking-wide shadow-md hover:shadow-lg transition-all"
+              >
+                Entendido
+              </motion.button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       {/* Hero Section */}
       <section className="relative py-20 px-6 bg-gradient-to-b from-secondary/50 to-background">
         <div className="max-w-4xl mx-auto text-center">
