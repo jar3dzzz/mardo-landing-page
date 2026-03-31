@@ -53,7 +53,7 @@ export function About() {
               ingredientes de alta calidad para crear pasteles únicos e inolvidables.
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              Como parte de nuestra identidad utilizamos como coertura cada diseño
+              Como parte de nuestra identidad utilizamos como cobertura cada diseño
               exclusivamente crema de mantequilla/buttercream, así como decoraciones
               100% comestibles.
             </p>
