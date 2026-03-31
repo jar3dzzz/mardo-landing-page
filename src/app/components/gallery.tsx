@@ -9,25 +9,25 @@ export function Gallery() {
     {
       title: "Clásicos",
       images: [
-        "/gallery-classic-1.jpg",
-        "/gallery-classic-2.jpg",
-        "/gallery-classic-3.jpg",
+        "/gallery/gallery-classic-1.jpeg",
+        "/gallery/gallery-classic-2.jpg",
+        "/gallery/gallery-classic-3.jpeg",
       ],
     },
     {
       title: "Diseños",
       images: [
-        "/gallery-designer-1.jpg",
-        "/gallery-designer-2.jpg",
-        "/gallery-designer-3.jpg",
+        "/gallery/gallery-designer-1.jpg",
+        "/gallery/gallery-designer-2.mp4",
+        "/gallery/gallery-designer-3.jpeg",
       ],
     },
     {
       title: "Ocasiones Especiales",
       images: [
-        "/gallery-special-1.jpg",
-        "/gallery-special-2.jpg",
-        "/gallery-special-3.jpg",
+        "/gallery/gallery-special-1.jpg",
+        "/gallery/gallery-special-2.jpg",
+        "/gallery/gallery-special-3.jpg",
       ],
     },
   ];
@@ -73,11 +73,22 @@ export function Gallery() {
                     whileHover={{ scale: 1.02 }}
                     className="relative aspect-square overflow-hidden cursor-pointer group"
                   >
-                    <ImageWithFallback
-                      src={image}
-                      alt={`${gallery.title} ${imgIndex + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    {image.endsWith('.mp4') || image.endsWith('.webm') ? (
+                      <video
+                        src={image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : (
+                      <ImageWithFallback
+                        src={image}
+                        alt={`${gallery.title} ${imgIndex + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    )}
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
                   </motion.div>

@@ -7,7 +7,7 @@ export function Menu() {
       title: "Menu Tienda",
       description: "Dulces tentaciones para cualquier momento",
       sectionImages: [
-        "/menu/menu-3.jpg",
+        "/menu/menu-3.jpeg",
         "/menu/menu-7.jpg",
       ],
       items: [
@@ -55,8 +55,8 @@ export function Menu() {
       title: "Tienda",
       description: "Postres individuales",
       sectionImages: [
-        "/menu/menu-4.jpg",
         "/menu/menu-5.jpg",
+        "/menu/menu-4.jpeg",
       ],
       items: [
         {
@@ -90,13 +90,19 @@ export function Menu() {
           name: "Brownie Tradicional",
           price: "$60",
         },
+        {
+          name: "Tiramisu",
+          price: "$190",
+          description: "290g",
+        },
       ],
     },
     {
       title: "Rebanadas",
       description: "Nuestros pasteles en rebanadas",
       sectionImages: [
-        "/menu/menu-6.jpg"
+        "/menu/menu-6.jpeg",
+        "/menu/menu-8.jpg",
       ],
       items: [
         {
