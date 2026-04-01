@@ -87,7 +87,7 @@ export function Menu() {
           description: "Rol de canela mojado en 4 leches",
         },
         {
-          name: "Brownie Rochier",
+          name: "Brownie Rocher",
           price: "$80",
           description: "Individual",
         },
