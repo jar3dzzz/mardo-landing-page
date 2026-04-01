@@ -39,7 +39,7 @@ export function Hero() {
                   delay: 0.2,
                   ease: "easeOut",
                 }}
-                className="w-auto h-48 sm:h-48 md:h-64 lg:h-80 object-contain drop-shadow-md"
+                className="w-auto h-36 sm:h-48 md:h-64 lg:h-80 object-contain drop-shadow-md"
               />
             </div>
           </h1>
@@ -48,7 +48,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="text-sm sm:text-base md:text-xl text-stone-600 py-4 mb-6 sm:mb-6 max-w-xs sm:max-w-sm md:max-w-md font-light text-left"
+            className="text-xs sm:text-base md:text-xl text-stone-600 py-3 sm:py-4 mb-5 sm:mb-6 max-w-[260px] sm:max-w-sm md:max-w-md font-light text-left leading-relaxed"
           >
             Pasteles, postres y bocadillos para tus momentos más dulces.
           </motion.p>
