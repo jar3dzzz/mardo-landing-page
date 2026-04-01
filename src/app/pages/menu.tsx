@@ -312,8 +312,11 @@ export function Menu() {
             </h1>
             <div className="w-24 h-[1px] bg-accent mx-auto mb-8" />
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              Descubre nuestra selección de pasteles, postres y bocadillos
-              artesanales, elaborados con los mejores ingredientes.
+              Descubre nuestros pasteles y postres de autor elaborados con los
+              mejores ingredientes.
+            </p>
+            <p className="text-lg text-foreground/70 font-bold max-w-2xl mx-auto leading-relaxed">
+              Disponibles siempre en tienda*
             </p>
           </motion.div>
         </div>
