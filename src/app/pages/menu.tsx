@@ -29,7 +29,8 @@ export function Menu() {
       title: "Menu Tienda",
       description: "Dulces tentaciones para cualquier momento",
       sectionImages: [
-        "/menu/menu-3.jpeg",
+        "/menu/menu-111.jpg",
+        "/menu/menu-100.jpg",
         "/menu/menu-7.jpg",
       ],
       items: [
@@ -170,8 +171,8 @@ export function Menu() {
       ],
     },
     {
-      title: "Pasteles",
-      description: "Precios base, pueden variar según tamaño y decoración",
+      title: "Pasteles de diseño especial",
+      description: "Precios base, pueden variar según tamaño y decoración. Disponibles solo sobre pedido con 5 días de anticipación",
       sectionImages: [
         "/menu/menu-1.jpg",
       ],
@@ -199,12 +200,12 @@ export function Menu() {
       ],
     },
     {
-      title: "Sabores",
+      title: "Sabores para pasteles de diseño personalizado",
       description: "El signo $ representa un costo adicional sobre el precio base",
       sectionImages: [
-        "/menu/menu-2.jpg",
-        "/menu/menu-10.jpg",
-        "/menu/menu-11.jpg",
+        "/menu/menu-2.jpeg",
+        "/menu/menu-10.jpeg",
+        "/menu/menu-11.jpeg",
       ],
       items: [
         {
@@ -419,6 +420,12 @@ export function Menu() {
           ))}
         </div>
       </section>
+
+      <div className="flex items-center justify-center">
+        <p className="text-foreground/50 font-bold text-xs sm:text-sm mt-1 leading-relaxed pl-0">
+          * Todos los precios incluyen IVA
+        </p>
+      </div>
 
       {/* Decorative divider before CTA */}
       <div className="flex items-center justify-center py-8">
