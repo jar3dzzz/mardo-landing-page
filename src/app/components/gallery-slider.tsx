@@ -14,6 +14,11 @@ const sliderImages = [
 export function GallerySlider() {
   return (
     <section className="py-6 bg-secondary/20 overflow-hidden">
+      <div className="flex justify-center mb-6 px-4 text-center">
+        <p className="text-accent tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm font-bold">
+          Nuestras Colaboraciones
+        </p>
+      </div>
       <InfiniteSlider gap={8} duration={30} durationOnHover={60}>
         {sliderImages.map((src, i) => (
           <div
