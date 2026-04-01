@@ -35,7 +35,7 @@ export function Menu() {
       items: [
         {
           name: "Pastel Carajillo",
-          price: "$570",
+          price: "$670",
           description: "Para 15-18 personas",
         },
         {
