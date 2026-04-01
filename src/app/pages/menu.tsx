@@ -29,9 +29,11 @@ export function Menu() {
       title: "Menu Tienda",
       description: "Dulces tentaciones para cualquier momento",
       sectionImages: [
+        "/menu/menu-22.jpg",
         "/menu/menu-111.jpg",
         "/menu/menu-100.jpg",
         "/menu/menu-7.jpg",
+
       ],
       items: [
         {
@@ -382,37 +384,75 @@ export function Menu() {
                           {item.price}
                         </span>
                       </div>
+
                       {/* Description */}
                       <p className="text-foreground/50 text-xs sm:text-sm mt-1 leading-relaxed pl-0">
                         {item.description}
                       </p>
+
+                      {/* Item Image */}
+                      {"image" in item && item.image && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          className="mt-3 overflow-hidden rounded-lg shadow-sm"
+                        >
+                          <ImageWithFallback
+                            src={item.image as string}
+                            alt={item.name}
+                            className="w-full max-w-xs h-40 object-cover"
+                          />
+                        </motion.div>
+                      )}
                     </motion.div>
                   ))}
                 </div>
 
                 {/* Section Images - always to the side, matching text height */}
                 {category.sectionImages.length > 0 && (
-                  <div className="w-[120px] sm:w-[160px] md:w-[200px] lg:w-2/5 shrink-0 flex flex-col gap-3 sm:gap-4">
-                    {category.sectionImages.map((img, imgIndex) => (
-                      <motion.div
-                        key={imgIndex}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.2 + imgIndex * 0.15,
-                        }}
-                        className="relative overflow-hidden rounded-lg sm:rounded-xl flex-1 min-h-0"
-                      >
-                        <ImageWithFallback
-                          src={img}
-                          alt={`${category.title}`}
-                          className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      </motion.div>
-                    ))}
+                  <div 
+                    className={`shrink-0 gap-3 sm:gap-4 ${
+                      category.sectionImages.length >= 4 
+                        ? 'w-[200px] sm:w-[350px] md:w-[450px] lg:w-1/2 grid grid-cols-2 auto-rows-fr' 
+                        : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
+                    }`}
+                  >
+                    {category.sectionImages.map((img, imgIndex) => {
+                      const isMosaic = category.sectionImages.length >= 4;
+                      
+                      let gridClasses = 'flex-1 min-h-0';
+                      if (isMosaic) {
+                        if (category.sectionImages.length === 4) {
+                          // 4 images: A clean 2x2 grid
+                          gridClasses = 'col-span-1 row-span-1';
+                        } else {
+                          // 5+ images: fallback
+                          gridClasses = 'col-span-1 row-span-1';
+                        }
+                      }
+
+                      return (
+                        <motion.div
+                          key={imgIndex}
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.2 + imgIndex * 0.15,
+                          }}
+                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses}`}
+                        >
+                          <ImageWithFallback
+                            src={img}
+                            alt={`${category.title} image ${imgIndex + 1}`}
+                            className="w-full h-full object-cover absolute inset-0"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
