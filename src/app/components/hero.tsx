@@ -30,7 +30,7 @@ export function Hero() {
           <h1 className="flex flex-col mb-4 md:mb-2">
             <div className="flex justify-start overflow-hidden pt-6 md:mb-0">
               <motion.img
-                src="/logo/alt-logo.png"
+                src="/logo/logo.png"
                 alt="MARDO Logo"
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -39,22 +39,7 @@ export function Hero() {
                   delay: 0.2,
                   ease: "easeOut",
                 }}
-                className="w-auto h-30 sm:h-36 md:h-48 lg:h-52 object-contain drop-shadow-md"
-              />
-            </div>
-
-            <div className="flex justify-start overflow-hidden">
-              <motion.img
-                src="/logo/sub-logo.png"
-                alt="MARDO Logo"
-                initial={{ y: 40, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.2,
-                  ease: "easeOut",
-                }}
-                className="w-auto h-16 sm:h-16 md:h-24 lg:h-28 object-contain drop-shadow-md"
+                className="w-auto h-48 sm:h-48 md:h-64 lg:h-80 object-contain drop-shadow-md"
               />
             </div>
           </h1>
