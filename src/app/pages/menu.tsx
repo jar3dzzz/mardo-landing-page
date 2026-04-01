@@ -442,7 +442,9 @@ export function Menu() {
                             duration: 0.6,
                             delay: 0.2 + imgIndex * 0.15,
                           }}
-                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses}`}
+                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses} ${
+                            isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
+                          }`}
                         >
                           <ImageWithFallback
                             src={img}
