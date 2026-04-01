@@ -414,7 +414,7 @@ export function Menu() {
                   <div 
                     className={`shrink-0 gap-3 sm:gap-4 ${
                       category.sectionImages.length >= 4 
-                        ? 'w-[200px] sm:w-[350px] md:w-[450px] lg:w-1/2 grid grid-cols-2 auto-rows-fr' 
+                        ? 'w-[200px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr' 
                         : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
                     }`}
                   >
@@ -424,11 +424,11 @@ export function Menu() {
                       let gridClasses = 'flex-1 min-h-0';
                       if (isMosaic) {
                         if (category.sectionImages.length === 4) {
-                          // 4 images: A clean 2x2 grid
-                          gridClasses = 'col-span-1 row-span-1';
+                          // 4 images: A clean flex stack on mobile, 2x2 grid on desktop
+                          gridClasses = 'flex-1 sm:col-span-1 sm:row-span-1';
                         } else {
                           // 5+ images: fallback
-                          gridClasses = 'col-span-1 row-span-1';
+                          gridClasses = 'flex-1 sm:col-span-1 sm:row-span-1';
                         }
                       }
 
