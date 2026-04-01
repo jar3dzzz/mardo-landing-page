@@ -3,6 +3,20 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
+type MenuItem = {
+  name: string;
+  price?: string;
+  description?: string;
+  image?: string;
+};
+
+type MenuCategory = {
+  title: string;
+  description?: string;
+  sectionImages: string[];
+  items: MenuItem[];
+};
+
 export function Menu() {
   const today = new Date().getDay();
 
@@ -24,7 +38,7 @@ export function Menu() {
     setShowModal(true);
   }, []);
 
-  const menuCategories = [
+  const menuCategories: MenuCategory[] = [
     {
       title: "Menu Tienda",
       description: "Dulces tentaciones para cualquier momento",
