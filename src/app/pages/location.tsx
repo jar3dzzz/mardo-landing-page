@@ -131,20 +131,20 @@ export function Location() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="tel:+529932786227"
+                href="https://wa.me/message/T6HH3Y6V4TSUA1"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
               >
-                Llamar – Plaza Vía 2
+                Ordenar – Plaza Vía 2
               </motion.a>
               <motion.a
-                href="tel:+529936693508"
+                href="https://wa.me/message/WTXHPDKZK5VNO1"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
               >
-                Llamar – Plaza Montecarlo
+                Ordenar – Plaza Montecarlo
               </motion.a>
             </div>
             <div className="w-36 h-[1px] bg-accent mx-auto mt-16" />
