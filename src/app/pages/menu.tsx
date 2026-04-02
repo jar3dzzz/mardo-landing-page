@@ -190,7 +190,7 @@ export function Menu() {
       title: "Pasteles de diseño especial",
       description: "Precios base, pueden variar según tamaño y decoración. Disponibles solo sobre pedido con 5 días de anticipación",
       sectionImages: [
-        "/menu/menu-1.jpg",
+        "/menu/menu-1.jpeg",
       ],
       items: [
         {
