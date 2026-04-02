@@ -3,8 +3,8 @@ import { MapPin, Phone, Clock, Navigation } from "lucide-react";
 
 const locations = [
   {
-    name: "Mardó – Plaza Vía",
-    address: "Plaza Via, Av. Vía 2 114-2, local #4, Oropeza, 86035 Villahermosa, Tab.",
+    name: "Mardó – Plaza Vía 2",
+    address: "Plaza Via 2, Av. Vía 2 114-2, local #4, Oropeza, 86035 Villahermosa, Tab.",
     phone: "993 278 6227",
     hours: "Lun – Sáb: 10:00 AM – 7:00 PM",
     hours2: "Dom: 11:00 AM – 5:00 PM",

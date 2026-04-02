@@ -56,7 +56,7 @@ export function Menu() {
           description: "Para 15-18 personas",
         },
         {
-          name: "Pastel Ferrero",
+          name: "Pastel Intenso Ferrero",
           price: "$450",
           description:
             "Para 8-10 personas",
@@ -77,7 +77,7 @@ export function Menu() {
           description: "Para 8-10 personas",
         },
         {
-          name: "Cheesecake NY",
+          name: "Cheesecake New York",
           price: "$570",
           description:
             "Para 8-10 personas",
