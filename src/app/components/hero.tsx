@@ -17,8 +17,9 @@ export function Hero() {
           <source media="(max-width: 768px)" srcSet="/hero-bg-phn.webp" />
           <img
             src="/hero-bg-dsk.png"
-            alt="Elegant pastries"
+            alt="MARDO logo"
             className="w-full h-full object-cover"
+            fetchPriority="high"
           />
         </picture>
         <div className="absolute inset-0" />
