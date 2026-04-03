@@ -7,6 +7,7 @@ type MenuItem = {
   name: string;
   price?: string;
   description?: string;
+  subDescription?: string;
   image?: string;
 };
 
@@ -59,6 +60,13 @@ function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }
         </span>
       </div>
 
+      {/* ALWAYS VISIBLE SUB-DESCRIPTION */}
+      {item.subDescription && (
+        <p className="text-foreground/50 text-xs sm:text-sm mt-0.5 leading-relaxed pl-0 whitespace-pre-line">
+          {item.subDescription}
+        </p>
+      )}
+
       {/* Description Card (Expandable) */}
       <AnimatePresence>
         {isOpen && isExpandable && (
@@ -71,7 +79,7 @@ function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }
             <div className="py-3 px-4 bg-muted/40 border border-border/50 rounded-xl shadow-sm relative">
               <div className="relative z-10">
                 {hasDescription && (
-                  <p className="text-foreground/80 text-sm leading-relaxed">
+                  <p className="text-foreground/80 text-sm leading-relaxed whitespace-pre-line">
                     {item.description}
                   </p>
                 )}
@@ -135,40 +143,44 @@ export function Menu() {
         {
           name: "Pastel Carajillo",
           price: "$670",
-          description: "Para 15-18 personas",
+          subDescription: "Para 15-18 personas",
+          description: "Pastel Carajillo\nPan de chocolate embebido con almibar de vainilla y licor 43 , relleno de chocolate semiamargo y crema de café.\nRECOMENDACIONES : Conservar en refrigeración hasta 2 hrs antes de partir y consumir a temperatura ambiente.",
         },
         {
           name: "Pastel Intenso Ferrero",
           price: "$450",
-          description:
-            "Para 8-10 personas",
+          subDescription: "Para 8-10 personas",
+          description: "Pastel Intenso Ferrero\nPan humedo y chocolatoso con relleno de crema de avellanas y chocolate de leche con toque de trozos de avellanas naturales.\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre frío.",
         },
         {
           name: "Pastel Cuatro Leches",
           price: "$570",
-          description: "Para 15 personas",
+          subDescription: "Para 15 personas",
+          description: "4 Leches Queso de Bola\nPastel insignia de la casa, pan suave y húmedo en 4 leches con relleno de queso de bola Gallo Azul y dulce de leche.\nRECOMENDACIONES : Conservar en refrigeración y consumir siempre frío.\nTip de la chef : Se puede semi-congelar para que sepa a pastel helado.",
         },
         {
           name: "Pastel Zanahoria",
           price: "$430",
-          description: "Para 8-10 personas",
+          subDescription: "Para 8-10 personas",
+          description: "Beso de zanahoria\nPan especiado de zanahoria ligeramente húmedo, con toques de nuez pecana y 3 capas de relleno de mousse de queso crema.\nRECOMENDACIÓN : Conservar en refrigeración y consumir semi-frío.",
         },
         {
           name: "Pay de Macadamia",
           price: "$470",
-          description: "Para 8-10 personas",
+          subDescription: "Para 8-10 personas",
+          description: "Pay de Macadamia\nPay tipo tarta con base de galleta horneada y caramelizada, con relleno cremoso de vainilla, mantequilla y nuez de macadamia coronado con salsa de caramelo.\nRECOMENDACIONES : Conservar en refrigeración y consumir siempre frío.\nTip de la chef : Meter al microondas unos cuantos segundos para reactivar el sabor de la mantequilla y acompañar con una bola de helado de vainilla encima ",
         },
         {
           name: "Cheesecake New York",
           price: "$570",
-          description:
-            "Para 8-10 personas",
+          subDescription: "Para 8-10 personas",
+          description: "Cheesecake estilo New York extra cremoso con base de galleta de vainilla y harina de almendras, cubierto con crema batida de nata.\n* NO CONTIENE FRUTOS\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre frío.",
         },
         {
           name: "Tarta Vasca Frutos Rojos",
           price: "$450",
-          description:
-            "Para 8 personas",
+          subDescription: "Para 8 personas",
+          description: "Tarta de queso suave con topping de compota de frutos rojos hecha en casa.\nNuestros productos son hechos con ingredientes naturales y sin conservadores.\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre fría",
         },
       ],
     },
@@ -227,44 +239,44 @@ export function Menu() {
       ],
       items: [
         {
-          name: "Tarta Vasca",
+          name: "Tarta Vasca Frutos Rojos",
           price: "$85",
-          description: "Tarta vasca de frutos rojos",
+          description: "Tarta de queso suave con topping de compota de frutos rojos hecha en casa.\nNuestros productos son hechos con ingredientes naturales y sin conservadores.\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre fría",
         },
         {
-          name: "4 Leches Queso de Bola",
+          name: "Pastel Cuatro Leches",
           price: "$85",
-          description: "Pan de 4 leches con relleno de crema de queso de bola",
+          description: "4 Leches Queso de Bola\nPastel insignia de la casa, pan suave y húmedo en 4 leches con relleno de queso de bola Gallo Azul y dulce de leche.\nRECOMENDACIONES : Conservar en refrigeración y consumir siempre frío.\nTip de la chef : Se puede semi-congelar para que sepa a pastel helado.",
         },
         {
-          name: "Cheesecake NY",
+          name: "Cheesecake New York",
           price: "$95",
-          description: "Cheesecake NY con frutos rojos",
+          description: "Cheesecake estilo New York extra cremoso con base de galleta de vainilla y harina de almendras, cubierto con crema batida de nata.\n* NO CONTIENE FRUTOS\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre frío.",
         },
         {
-          name: "Ferrero",
+          name: "Pastel Intenso Ferrero",
           price: "$85",
-          description: "Pan de chocolate con relleno de ferrero y crema de chocolate",
+          description: "Pastel Intenso Ferrero\nPan humedo y chocolatoso con relleno de crema de avellanas y chocolate de leche con toque de trozos de avellanas naturales.\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre frío.",
         },
         {
-          name: "Carajillo",
+          name: "Pastel Carajillo",
           price: "$95",
-          description: "Rebanda pastel Carajillo",
+          description: "Pastel Carajillo\nPan de chocolate embebido con almibar de vainilla y licor 43 , relleno de chocolate semiamargo y crema de café.\nRECOMENDACIONES : Conservar en refrigeración hasta 2 hrs antes de partir y consumir a temperatura ambiente.",
         },
         {
-          name: "Beso de Zanahoria",
+          name: "Pastel Zanahoria",
           price: "$130",
-          description: "Un cuarto de pastel",
+          description: "Beso de zanahoria\nPan especiado de zanahoria ligeramente húmedo, con toques de nuez pecana y 3 capas de relleno de mousse de queso crema.\nRECOMENDACIÓN : Conservar en refrigeración y consumir semi-frío.",
         },
         {
           name: "Pay de Macadamia",
           price: "$85",
-          description: "Rebanada",
+          description: "Pay de Macadamia\nPay tipo tarta con base de galleta horneada y caramelizada, con relleno cremoso de vainilla, mantequilla y nuez de macadamia coronado con salsa de caramelo.\nRECOMENDACIONES : Conservar en refrigeración y consumir siempre frío.\nTip de la chef : Meter al microondas unos cuantos segundos para reactivar el sabor de la mantequilla y acompañar con una bola de helado de vainilla encima ",
         },
         {
           name: "Cheesecake Lotus",
           price: "$115",
-          description: "Rebanada",
+          description: "Cheesecake Lotus\nCrema de queso suave con base de galleta de Lotus, coronado con crema batida y galleta Lotus desmoronada.\nRECOMENDACIÓN : Conservar en refrigeración y consumir siempre frío.",
         },
       ],
     },
