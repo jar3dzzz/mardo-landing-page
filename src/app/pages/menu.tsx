@@ -480,7 +480,7 @@ export function Menu() {
                   <div 
                     className={`shrink-0 gap-3 sm:gap-4 ${
                       category.sectionImages.length >= 4 
-                        ? 'w-[200px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr' 
+                        ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr' 
                         : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
                     }`}
                   >
