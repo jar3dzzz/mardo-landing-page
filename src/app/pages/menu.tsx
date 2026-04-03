@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 type MenuItem = {
@@ -17,24 +17,106 @@ type MenuCategory = {
   items: MenuItem[];
 };
 
+function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasDescription = !!item.description;
+  const hasImage = "image" in item && !!item.image;
+  const isExpandable = hasDescription || hasImage;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: itemIndex * 0.05,
+      }}
+      className="group py-3 sm:py-4 first:pt-0 last:pb-0"
+    >
+      {/* Name + Price row */}
+      <div
+        className={`flex items-baseline gap-2 ${isExpandable ? "cursor-pointer group/title" : ""}`}
+        onClick={() => {
+          if (isExpandable) setIsOpen(!isOpen);
+        }}
+      >
+        <h3 className="text-base sm:text-lg font-serif text-primary group-hover:text-accent transition-colors duration-300 shrink min-w-0">
+          {item.name}
+        </h3>
+        {isExpandable && (
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-accent/60 group-hover/title:text-accent flex-shrink-0 self-center"
+          >
+            <ChevronDown size={16} />
+          </motion.div>
+        )}
+        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[2rem] hidden sm:block" />
+        <span className="text-accent font-serif text-sm sm:text-base font-medium shrink-0 whitespace-nowrap ml-auto sm:ml-0">
+          {item.price}
+        </span>
+      </div>
+
+      {/* Description Card (Expandable) */}
+      <AnimatePresence>
+        {isOpen && isExpandable && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: "auto", marginTop: 12 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="py-3 px-4 bg-muted/40 border border-border/50 rounded-xl shadow-sm relative">
+              <div className="relative z-10">
+                {hasDescription && (
+                  <p className="text-foreground/80 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                )}
+
+                {/* Item Image */}
+                {hasImage && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="mt-3 overflow-hidden rounded-lg shadow-sm"
+                  >
+                    <ImageWithFallback
+                      src={item.image as string}
+                      alt={item.name}
+                      className="w-full max-w-sm h-48 object-cover"
+                    />
+                  </motion.div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 export function Menu() {
   const today = new Date().getDay();
 
   // Imágenes por día de la semana (Domingo=0, Lunes=1, ..., Sábado=6)
   const dailyPromos = [
-    "/promo-1.jpg",   // 0 (Domingo)
-    "/promo-1.jpg",    // 1 (Lunes)
-    "/promo-1.jpg",    // 2 (Martes)
-    "/promo-2.jpg",    // 3 (Miércoles)
-    "/promo-2.jpg",   // 4 (Jueves)
-    "/promo-1.jpg",    // 5 (Viernes)
-    "/promo-1.jpg"  // 6 (Sábado)
+    "/promo-1.jpg",
+    "/promo-1.jpg",
+    "/promo-1.jpg",
+    "/promo-2.jpg",
+    "/promo-2.jpg",
+    "/promo-1.jpg",
+    "/promo-1.jpg"
   ];
 
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    // Mostrar el modal automáticamente al cargar la página
     setShowModal(true);
   }, []);
 
@@ -377,49 +459,7 @@ export function Menu() {
                     }`}
                 >
                   {category.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.4,
-                        delay: itemIndex * 0.05,
-                      }}
-                      className="group py-3 sm:py-4 first:pt-0 last:pb-0"
-                    >
-                      {/* Name + Price row */}
-                      <div className="flex items-baseline gap-2">
-                        <h3 className="text-base sm:text-lg font-serif text-primary group-hover:text-accent transition-colors duration-300 shrink min-w-0">
-                          {item.name}
-                        </h3>
-                        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[2rem] hidden sm:block" />
-                        <span className="text-accent font-serif text-sm sm:text-base font-medium shrink-0 whitespace-nowrap ml-auto sm:ml-0">
-                          {item.price}
-                        </span>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-foreground/50 text-xs sm:text-sm mt-1 leading-relaxed pl-0">
-                        {item.description}
-                      </p>
-
-                      {/* Item Image */}
-                      {"image" in item && item.image && (
-                        <motion.div 
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          className="mt-3 overflow-hidden rounded-lg shadow-sm"
-                        >
-                          <ImageWithFallback
-                            src={item.image as string}
-                            alt={item.name}
-                            className="w-full max-w-xs h-40 object-cover"
-                          />
-                        </motion.div>
-                      )}
-                    </motion.div>
+                    <MenuItemCard key={item.name} item={item} itemIndex={itemIndex} />
                   ))}
                 </div>
 
