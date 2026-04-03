@@ -60,6 +60,7 @@ export function Implementation() {
           >
             <ImageWithFallback
               src="/chef.jpg"
+              mobileSrc="/chef.webp"
               alt="Repostera trabajando"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />

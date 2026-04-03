@@ -28,6 +28,7 @@ export function About() {
           >
             <ImageWithFallback
               src="/about.jpg"
+              mobileSrc="/about.webp"
               alt="Interior de nuestra repostería"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />

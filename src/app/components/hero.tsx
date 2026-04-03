@@ -14,7 +14,7 @@ export function Hero() {
         className="absolute inset-0 w-full h-full"
       >
         <picture>
-          <source media="(max-width: 768px)" srcSet="/hero-bg-phn.png" />
+          <source media="(max-width: 768px)" srcSet="/hero-bg-phn.webp" />
           <img
             src="/hero-bg-dsk.png"
             alt="Elegant pastries"

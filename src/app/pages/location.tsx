@@ -16,6 +16,7 @@ const locations = [
     name: "Mardó – Plaza Montecarlo",
     address: "Plaza Montecarlo, C. Ceiba local 7B, Primero de Mayo, 86190 Villahermosa, Tab.",
     phone: "993 669 3508",
+    hours1: "Lun: Cerrado",
     hours: "Mar – Sáb: 10:00 AM – 7:00 PM",
     hours2: "Dom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/r5L15KDQQLZFXxKW9",
@@ -93,7 +94,7 @@ export function Location() {
 
                 <div className="flex items-center gap-3 text-foreground/80">
                   <Clock size={20} className="flex-shrink-0 text-accent" />
-                  <span>{loc.hours} {loc.hours2}</span>
+                  <span className="whitespace-pre-line">{loc.hours1}<br />{loc.hours}<br />{loc.hours2}</span>
                 </div>
                 <a
                   href={loc.mapsUrl}

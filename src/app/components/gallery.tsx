@@ -9,25 +9,25 @@ export function Gallery() {
     {
       title: "Clásicos",
       images: [
-        "/gallery/gallery-classic-1.jpeg",
-        "/gallery/gallery-classic-2.jpg",
-        "/gallery/gallery-classic-3.jpeg",
+        { src: "/gallery/gallery-classic-1.jpeg", mobileSrc: "/gallery/gallery-classic-1.webp" },
+        { src: "/gallery/gallery-classic-2.jpg" },
+        { src: "/gallery/gallery-classic-3.jpeg" },
       ],
     },
     {
       title: "Diseños",
       images: [
-        "/gallery/gallery-designer-1.jpg",
-        "/gallery/gallery-designer-2.mp4",
-        "/gallery/gallery-designer-3.jpeg",
+        { src: "/gallery/gallery-designer-1.jpg" },
+        { src: "/gallery/gallery-designer-2.mp4" },
+        { src: "/gallery/gallery-designer-3.jpeg" },
       ],
     },
     {
       title: "Ocasiones Especiales",
       images: [
-        "/gallery/gallery-special-1.jpg",
-        "/gallery/gallery-special-2.jpg",
-        "/gallery/gallery-special-3.jpg",
+        { src: "/gallery/gallery-special-1.jpg" },
+        { src: "/gallery/gallery-special-2.jpg" },
+        { src: "/gallery/gallery-special-3.jpg" },
       ],
     },
   ];
@@ -67,36 +67,41 @@ export function Gallery() {
 
               {/* Square image grid */}
               <div className="grid grid-cols-3 gap-1 md:gap-2">
-                {gallery.images.map((image, imgIndex) => (
-                  <motion.div
-                    key={imgIndex}
-                    whileHover={{ scale: 1.02 }}
-                    className="relative aspect-square overflow-hidden cursor-pointer group"
-                  >
-                    {image.endsWith('.mp4') || image.endsWith('.webm') ? (
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="none" // Importante: No carga el video hasta que la página esté lista
-                        poster="/images/hero-placeholder.webp" // Muestra una imagen ligera mientras carga el video
-                        className="w-full h-auto object-cover"
-                      >
-                        <source src={image} type="video/mp4" />
-                        Tu navegador no soporta videos.
-                      </video>
-                    ) : (
-                      <ImageWithFallback
-                        src={image}
-                        alt={`${gallery.title} ${imgIndex + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    )}
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
-                  </motion.div>
-                ))}
+                {gallery.images.map((imageObj, imgIndex) => {
+                  const image = imageObj.src;
+                  const mobileSrc = imageObj.mobileSrc;
+                  return (
+                    <motion.div
+                      key={imgIndex}
+                      whileHover={{ scale: 1.02 }}
+                      className="relative aspect-square overflow-hidden cursor-pointer group"
+                    >
+                      {image.endsWith('.mp4') || image.endsWith('.webm') ? (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="none"
+                          poster="/images/hero-placeholder.webp"
+                          className="w-full h-auto object-cover"
+                        >
+                          <source src={image} type="video/mp4" />
+                          Tu navegador no soporta videos.
+                        </video>
+                      ) : (
+                        <ImageWithFallback
+                          src={image}
+                          mobileSrc={mobileSrc}
+                          alt={`${gallery.title} ${imgIndex + 1}`}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      )}
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300" />
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
