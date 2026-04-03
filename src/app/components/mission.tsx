@@ -29,7 +29,7 @@ export function Mission() {
             {
               title: "Autenticidad",
               description:
-                "Honramos las técnicas artesanales que nos inspiran, asegurándonos de que cada bocado sea auténtico y lleno de sabor.",
+                "Honramos las técnicas Francesas que nos inspiran, asegurándonos de que cada bocado sea auténtico y lleno de sabor.",
             },
             {
               title: "Calidad",

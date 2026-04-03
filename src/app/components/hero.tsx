@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.3 }}
             className="text-xs sm:text-base md:text-xl text-stone-600 py-3 sm:py-4 mb-5 sm:mb-6 max-w-[260px] sm:max-w-sm md:max-w-md font-light text-left leading-relaxed"
           >
-            Pasteles, postres y bocadillos para tus momentos más dulces.
+            Pasteles y postres para tus momentos más dulces.
           </motion.p>
 
           <motion.div
