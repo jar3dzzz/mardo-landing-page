@@ -75,13 +75,17 @@ export function Gallery() {
                   >
                     {image.endsWith('.mp4') || image.endsWith('.webm') ? (
                       <video
-                        src={image}
                         autoPlay
-                        loop
                         muted
+                        loop
                         playsInline
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                        preload="none" // Importante: No carga el video hasta que la página esté lista
+                        poster="/images/hero-placeholder.webp" // Muestra una imagen ligera mientras carga el video
+                        className="w-full h-auto object-cover"
+                      >
+                        <source src={image} type="video/mp4" />
+                        Tu navegador no soporta videos.
+                      </video>
                     ) : (
                       <ImageWithFallback
                         src={image}

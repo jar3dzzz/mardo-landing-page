@@ -86,7 +86,7 @@ function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }
 
                 {/* Item Image */}
                 {hasImage && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
@@ -477,16 +477,15 @@ export function Menu() {
 
                 {/* Section Images - always to the side, matching text height */}
                 {category.sectionImages.length > 0 && (
-                  <div 
-                    className={`shrink-0 gap-3 sm:gap-4 ${
-                      category.sectionImages.length >= 4 
-                        ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr' 
+                  <div
+                    className={`shrink-0 gap-3 sm:gap-4 ${category.sectionImages.length >= 4
+                        ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
                         : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
-                    }`}
+                      }`}
                   >
                     {category.sectionImages.map((img, imgIndex) => {
                       const isMosaic = category.sectionImages.length >= 4;
-                      
+
                       let gridClasses = 'flex-1 min-h-0';
                       if (isMosaic) {
                         if (category.sectionImages.length === 4) {
@@ -508,9 +507,8 @@ export function Menu() {
                             duration: 0.6,
                             delay: 0.2 + imgIndex * 0.15,
                           }}
-                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses} ${
-                            isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
-                          }`}
+                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses} ${isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
+                            }`}
                         >
                           <ImageWithFallback
                             src={img}
