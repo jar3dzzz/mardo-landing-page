@@ -439,6 +439,7 @@ export function Menu() {
         title="Especial Día de las Madres"
         images={[
           "/mother/mom-0.webp",
+          "/mother/mom-1.jpeg",
           "/mother/mom-2.webp",
           "/mother/mom-3.webp",
           "/mother/mom-4.webp",
