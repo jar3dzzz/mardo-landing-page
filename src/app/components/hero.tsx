@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 const slides = [
   {
     id: 0,
-    desktopImg: "/WhatsApp Unknown 2026-04-27 at 9.21.16 PM/mom-1.webp",
-    mobileImg: "/WhatsApp Unknown 2026-04-27 at 9.21.16 PM/mom-1.jpeg",
+    desktopImg: "/mom-1.webp",
+    mobileImg: "/mother/mom-3.webp",
     text: "En MARDÓ celebramos a mamá.",
     buttonText: "Ver diseños",
     buttonHref: "/menu"
