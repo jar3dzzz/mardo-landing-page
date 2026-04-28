@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { X, ChevronDown } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { GallerySlider } from "../components/gallery-slider";
 
 type MenuItem = {
   name: string;
@@ -433,6 +434,20 @@ export function Menu() {
         </div>
       </section>
 
+      {/* Collaborations / Gallery Slider */}
+      <GallerySlider
+        title="Especial Día de las Madres"
+        images={[
+          "/mother/mom-0.webp",
+          "/mother/mom-2.webp",
+          "/mother/mom-3.webp",
+          "/mother/mom-4.webp",
+          "/mother/mom-5.webp",
+        ]}
+        imageClassName="h-full w-auto object-contain"
+        itemStyle={{ height: "clamp(150px, 20vw, 350px)" }}
+      />
+
       {/* Menu Categories */}
       <section className="py-12 px-6">
         <div className="max-w-5xl mx-auto">
@@ -479,8 +494,8 @@ export function Menu() {
                 {category.sectionImages.length > 0 && (
                   <div
                     className={`shrink-0 gap-3 sm:gap-4 ${category.sectionImages.length >= 4
-                        ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
-                        : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
+                      ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
+                      : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
                       }`}
                   >
                     {category.sectionImages.map((img, imgIndex) => {
