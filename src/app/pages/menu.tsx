@@ -447,6 +447,8 @@ export function Menu() {
         ]}
         imageClassName="h-full w-auto object-contain"
         itemStyle={{ height: "clamp(150px, 20vw, 350px)" }}
+        scrollable={true}
+        autoScrollSpeed={0.5}
       />
 
       {/* Menu Categories */}
@@ -458,7 +460,7 @@ export function Menu() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.05 }}
+              transition={{ duration: 1, delay: categoryIndex * 1 }}
               className="mb-20 last:mb-0"
             >
               {/* Section Header */}
@@ -520,7 +522,7 @@ export function Menu() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
                           transition={{
-                            duration: 0.6,
+                            duration: 1,
                             delay: 0.2 + imgIndex * 0.15,
                           }}
                           className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses} ${isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
