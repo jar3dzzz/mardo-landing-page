@@ -18,12 +18,14 @@ export function GallerySlider({
   itemStyle = {
     width: "clamp(100px, 10vw, 250px)",
     height: "clamp(100px, 5vw, 250px)",
-  }
+  },
+  scrollable = false,
 }: {
   images?: string[],
   title?: string,
   imageClassName?: string,
-  itemStyle?: React.CSSProperties
+  itemStyle?: React.CSSProperties,
+  scrollable?: boolean,
 }) {
   return (
     <section className="py-6 bg-secondary/20 overflow-hidden">
@@ -34,21 +36,39 @@ export function GallerySlider({
           </p>
         </div>
       )}
-      <InfiniteSlider gap={8} duration={30} durationOnHover={60}>
-        {images.map((src, i) => (
-          <div
-            key={i}
-            className="flex-shrink overflow-hidden flex justify-center items-center"
-            style={itemStyle}
-          >
-            <ImageWithFallback
-              src={src}
-              alt={`${title} imagen ${i + 1}`}
-              className={imageClassName}
-            />
-          </div>
-        ))}
-      </InfiniteSlider>
+      {scrollable ? (
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {images.map((src, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 overflow-hidden snap-center flex justify-center items-center"
+              style={itemStyle}
+            >
+              <ImageWithFallback
+                src={src}
+                alt={`${title} imagen ${i + 1}`}
+                className={imageClassName}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <InfiniteSlider gap={8} duration={30} durationOnHover={60}>
+          {images.map((src, i) => (
+            <div
+              key={i}
+              className="flex-shrink overflow-hidden flex justify-center items-center"
+              style={itemStyle}
+            >
+              <ImageWithFallback
+                src={src}
+                alt={`${title} imagen ${i + 1}`}
+                className={imageClassName}
+              />
+            </div>
+          ))}
+        </InfiniteSlider>
+      )}
     </section>
   );
 }

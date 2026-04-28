@@ -6,7 +6,7 @@ const slides = [
   {
     id: 0,
     desktopImg: "/mom-1.webp",
-    mobileImg: "/mother/mom-3.webp",
+    mobileImg: "/mother/mom-4.webp",
     text: "En MARDÓ celebramos a mamá.",
     buttonText: "Ver diseños",
     buttonHref: "/menu"
