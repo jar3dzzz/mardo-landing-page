@@ -360,6 +360,31 @@ export function Menu() {
         },
       ],
     },
+    {
+      title: "Sobre pedido / Por temporada",
+      sectionImages: [
+        "/menu/menu-12.jpeg",
+        "/menu/menu-13.jpeg",
+        "/menu/menu-14.jpeg",
+      ],
+      items: [
+        {
+          name: "Pastel de tiramisú",
+          price: "$50",
+          description: "Pay de limon",
+        },
+        {
+          name: "Pastel de frambuesa",
+          price: "$50",
+          description: "Pay de limon",
+        },
+        {
+          name: "Tarta vasca de cremee brûlée",
+          price: "$130",
+          description: "Tarta vasca de cremee brûlée",
+        },
+      ],
+    }
   ];
 
   return (
@@ -479,8 +504,8 @@ export function Menu() {
                 {category.sectionImages.length > 0 && (
                   <div
                     className={`shrink-0 gap-3 sm:gap-4 ${category.sectionImages.length >= 4
-                        ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
-                        : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
+                      ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
+                      : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
                       }`}
                   >
                     {category.sectionImages.map((img, imgIndex) => {
