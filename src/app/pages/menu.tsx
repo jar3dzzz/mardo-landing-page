@@ -370,18 +370,18 @@ export function Menu() {
       items: [
         {
           name: "Pastel de tiramisú",
-          price: "$50",
-          description: "Pay de limon",
+          price: "$690",
+          description: "-Tiramisú Cake - húmedo en espresso, licor y crema ligera de vainilla.",
         },
         {
-          name: "Pastel de frambuesa",
-          price: "$50",
-          description: "Pay de limon",
+          name: "Pastel Framboisier",
+          price: "$560",
+          description: "Pastel de frambuesa - Humedo, cremoso y lleno de frambuesas naturales",
         },
         {
           name: "Tarta vasca de cremee brûlée",
-          price: "$130",
-          description: "Tarta vasca de cremee brûlée",
+          price: "$650",
+          description: "Cremosa tarta vasca de Queso, cubierta de crema de vainilla y azúcar Bruleada",
         },
       ],
     }
