@@ -483,10 +483,10 @@ export function Menu() {
 
               {/* Content: Items + Images */}
               <div
-                className={`flex ${category.sectionImages.length > 0
+                className={`flex flex-col ${category.sectionImages.length > 0
                   ? categoryIndex % 2 === 0
-                    ? "flex-row"
-                    : "flex-row-reverse"
+                    ? "sm:flex-row"
+                    : "sm:flex-row-reverse"
                   : ""
                   } gap-4 sm:gap-6 lg:gap-10 items-stretch`}
               >
@@ -504,8 +504,8 @@ export function Menu() {
                 {category.sectionImages.length > 0 && (
                   <div
                     className={`shrink-0 gap-3 sm:gap-4 ${category.sectionImages.length >= 4
-                      ? 'w-[150px] sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
-                      : 'w-[150px] sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
+                      ? 'w-full sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
+                      : 'w-full sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
                       }`}
                   >
                     {category.sectionImages.map((img, imgIndex) => {
@@ -532,7 +532,7 @@ export function Menu() {
                             duration: 0.6,
                             delay: 0.2 + imgIndex * 0.15,
                           }}
-                          className={`relative overflow-hidden rounded-lg sm:rounded-xl min-h-[100px] sm:min-h-[140px] ${gridClasses} ${isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
+                          className={`relative overflow-hidden rounded-lg sm:rounded-xl h-48 sm:h-auto min-h-[100px] sm:min-h-[140px] ${gridClasses} ${isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
                             }`}
                         >
                           <ImageWithFallback
