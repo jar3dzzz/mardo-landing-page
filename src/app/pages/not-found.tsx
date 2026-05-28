@@ -33,17 +33,30 @@ export function NotFound() {
       </motion.div>
       <motion.div
         animate={floatAnimation(0.7)}
-        className="absolute top-1/3 right-16 md:right-32 text-accent/15 hidden md:block"
+        className="absolute top-60 right-30 text-accent/15 hidden md:block"
       >
         <ChefHat size={44} />
       </motion.div>
       <motion.div
         animate={floatAnimation(2.2)}
-        className="absolute bottom-1/3 left-16 md:left-32 text-accent/15 hidden md:block"
+        className="absolute bottom-1/2 left-16 md:left-32 text-accent/15 hidden md:block"
       >
         <Compass size={40} />
       </motion.div>
 
+      <motion.div
+        animate={floatAnimation(1.1)}
+        className="absolute top-20 right-15 md:right-24 text-accent/20 hidden sm:block"
+      >
+        <Cookie size={48} />
+      </motion.div>
+
+      <motion.div
+        animate={floatAnimation(0.15)}
+        className="absolute bottom-20 left-16 text-accent/20 hidden sm:block"
+      >
+        <Croissant size={52} />
+      </motion.div>
       
 
       {/* Main Glassmorphism Card */}
