@@ -396,18 +396,18 @@ export function Menu() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
               onClick={() => setShowModal(false)}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-sm bg-background border border-border overflow-hidden shadow-2xl rounded-2xl p-6 sm:p-8 z-10 text-center"
+              className="relative w-full max-w-sm rounded-2xl p-6 sm:p-8 z-10 text-center"
             >
               <button
                 onClick={() => setShowModal(false)}
-                className="absolute right-3 top-3 text-foreground/50 hover:text-foreground hover:bg-muted rounded-full transition-colors"
+                className="absolute right-0 top-3 text-white hover:text-foreground hover:bg-muted rounded-full transition-colors"
                 aria-label="Cerrar modal"
               >
                 <X size={20} />
@@ -423,7 +423,7 @@ export function Menu() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowModal(false)}
-                className="w-full py-3 bg-accent text-accent-foreground rounded-full text-sm font-semibold tracking-wide shadow-md hover:shadow-lg transition-all"
+                className="w-full py-3 bg-accent text-white rounded-full text-sm font-semibold tracking-wide shadow-md hover:shadow-lg transition-all"
               >
                 Entendido
               </motion.button>
