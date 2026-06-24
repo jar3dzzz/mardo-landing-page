@@ -9,8 +9,7 @@ const locations = [
     hours: "Lun – Sáb: 10:00 AM – 7:00 PM",
     hours2: "Dom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/Y39VQpTJcSd5aruJ8",
-    embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9416835!3d18.0009146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Via!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9416835!3d18.0009146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Via!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
   },
   {
     name: "Mardó – Plaza Montecarlo",
@@ -20,48 +19,46 @@ const locations = [
     hours: "Mar – Sáb: 10:00 AM – 7:00 PM",
     hours2: "Dom: 11:00 AM – 5:00 PM",
     mapsUrl: "https://maps.app.goo.gl/r5L15KDQQLZFXxKW9",
-    embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9563462!3d17.9769507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Montecarlo!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.2!2d-92.9563462!3d17.9769507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eda4a48aef2ea7%3A0x0!2sPlaza+Montecarlo!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx",
   },
 ];
 
 export function Location() {
   return (
-    <div className="flex-1 flex flex-col pt-20 bg-secondary/50">
+    <div className="flex-1 flex flex-col pt-24 bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="relative py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif text-primary mb-6">
+            <h1 className="text-4xl md:text-5xl font-serif text-foreground font-normal mb-8">
               Nuestras Ubicaciones
             </h1>
-            <div className="w-24 h-[1px] bg-accent mx-auto mb-8" />
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-              Visítanos en cualquiera de nuestras dos sucursales en
-              Villahermosa, Tabasco.
+            <div className="w-16 h-[1px] bg-accent/40 mx-auto mb-8" />
+            <p className="text-base sm:text-lg font-normal text-foreground/90 max-w-xl mx-auto">
+              Visítanos en cualquiera de nuestras dos sucursales en Villahermosa, Tabasco.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Locations Grid */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="pb-32 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {locations.map((loc, index) => (
             <motion.div
               key={loc.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="bg-card border border-border/40 rounded-sm overflow-hidden flex flex-col"
             >
               {/* Map Embed */}
-              <div className="relative w-full h-72">
+              <div className="relative w-full aspect-video bg-muted/20">
                 <iframe
                   title={loc.name}
                   src={loc.embedUrl}
@@ -74,39 +71,47 @@ export function Location() {
               </div>
 
               {/* Details */}
-              <div className="p-8 space-y-5">
-                <h2 className="text-3xl font-serif text-primary">{loc.name}</h2>
+              <div className="p-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-2xl font-serif font-normal text-foreground mb-8">{loc.name}</h2>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <MapPin strokeWidth={2} size={20} className="mt-1 flex-shrink-0 text-accent" />
+                      <span className="text-base font-normal text-foreground leading-relaxed">{loc.address}</span>
+                    </div>
 
-                <div className="flex items-start gap-3 text-foreground/80">
-                  <MapPin size={20} className="mt-1 flex-shrink-0 text-accent" />
-                  <span>{loc.address}</span>
+                    <div className="flex items-center gap-4">
+                      <Phone strokeWidth={2} size={20} className="flex-shrink-0 text-accent" />
+                      <a
+                        href={`tel:+52${loc.phone.replace(/\s/g, "")}`}
+                        className="text-base font-normal text-foreground hover:text-accent transition-colors py-2"
+                      >
+                        {loc.phone}
+                      </a>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <Clock strokeWidth={2} size={20} className="mt-1 flex-shrink-0 text-accent" />
+                      <span className="text-base font-normal text-foreground whitespace-pre-line leading-relaxed">
+                        {loc.hours1 && <>{loc.hours1}<br /></>}
+                        {loc.hours}<br />{loc.hours2}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-foreground/80">
-                  <Phone size={20} className="flex-shrink-0 text-accent" />
-                  <a
-                    href={`tel:+52${loc.phone.replace(/\s/g, "")}`}
-                    className="hover:text-accent transition-colors"
-                  >
-                    {loc.phone}
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-3 text-foreground/80">
-                  <Clock size={20} className="flex-shrink-0 text-accent" />
-                  <span className="whitespace-pre-line">{loc.hours1}<br />{loc.hours}<br />{loc.hours2}</span>
-                </div>
                 <a
                   href={loc.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="mt-10 block"
                 >
                   <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="mt-4 w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-full text-lg hover:bg-accent/90 transition-colors"
+                    whileHover={{ backgroundColor: "var(--color-secondary)" }}
+                    className="w-full flex items-center justify-center gap-3 px-8 py-5 border border-primary/20 text-sm font-medium text-foreground tracking-widest uppercase transition-colors shadow-sm hover:shadow-md"
                   >
-                    <Navigation size={18} />
+                    <Navigation strokeWidth={2} size={16} />
                     Cómo llegar
                   </motion.button>
                 </a>
@@ -117,38 +122,32 @@ export function Location() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 px-6 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-32 px-6 bg-secondary/30">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-serif mb-6">¿Tienes alguna pregunta?</h2>
-            <p className="text-lg mb-8 text-primary-foreground/90">
-              Contáctanos por teléfono o visítanos directamente en cualquiera de
-              nuestras sucursales. ¡Te esperamos!
+            <h2 className="text-3xl font-serif font-normal text-foreground mb-6">¿Tienes alguna pregunta?</h2>
+            <p className="text-base font-normal text-foreground/90 mb-12 max-w-lg mx-auto">
+              Contáctanos por teléfono o visítanos directamente en cualquiera de nuestras sucursales. ¡Te esperamos!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <a
                 href="https://wa.me/message/T6HH3Y6V4TSUA1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
+                className="px-10 py-5 bg-primary text-primary-foreground text-sm font-medium tracking-[0.2em] uppercase hover:bg-primary/90 transition-colors shadow-lg"
               >
                 Ordenar – Plaza Vía 2
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href="https://wa.me/message/WTXHPDKZK5VNO1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
+                className="px-10 py-5 border border-primary text-primary text-sm font-medium tracking-[0.2em] uppercase hover:bg-primary/5 transition-colors shadow-sm"
               >
-                Ordenar – Plaza Montecarlo
-              </motion.a>
+                Ordenar – Montecarlo
+              </a>
             </div>
-            <div className="w-36 h-[1px] bg-accent mx-auto mt-16" />
           </motion.div>
         </div>
       </section>

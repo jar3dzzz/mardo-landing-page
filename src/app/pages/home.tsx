@@ -1,10 +1,10 @@
-import { Hero } from "../components/hero";
-import { Mission } from "../components/mission";
-import { Implementation } from "../components/implementation";
-import { GallerySlider } from "../components/gallery-slider";
-import { Testimonials } from "../components/testimonials";
-import { Gallery } from "../components/gallery";
-import { About } from "../components/about";
+import { Hero } from "@/app/components/home/hero";
+import { Mission } from "@/app/components/home/mission";
+import { Implementation } from "@/app/components/home/implementation";
+import { GallerySlider } from "@/app/components/shared/gallery-slider";
+import { Testimonials } from "@/app/components/home/testimonials";
+import { Gallery } from "@/app/components/shared/gallery";
+import { About } from "@/app/components/shared/about";
 
 export function Home() {
   return (
