@@ -1,84 +1,100 @@
 import { motion } from "motion/react";
-import { useInView } from "../hooks/use-in-view";
-import { Heart, Wheat, Clock, Award } from "lucide-react";
-
-const values = [
-  {
-    icon: Heart,
-    title: "Passion & Care",
-    description: "Every pastry is crafted with dedication and attention to detail, ensuring perfection in every bite.",
-  },
-  {
-    icon: Wheat,
-    title: "Premium Ingredients",
-    description: "We source the finest organic flour, butter, and seasonal ingredients from trusted local suppliers.",
-  },
-  {
-    icon: Clock,
-    title: "Traditional Methods",
-    description: "Time-honored techniques including slow fermentation and hand-lamination for superior flavor and texture.",
-  },
-  {
-    icon: Award,
-    title: "Master Craftsmanship",
-    description: "Our team of experienced bakers brings decades of expertise to create exceptional baked goods.",
-  },
-];
+import { useInView } from "@/app/hooks/use-in-view";
+import { Heart, Award, Users, School } from "lucide-react";
+import { ImageWithFallback } from "@/app/components/shared/figma/ImageWithFallback";
 
 export function Implementation() {
-  const { ref, inView } = useInView();
+  const { ref, isInView } = useInView();
+
+  const features = [
+    {
+      icon: Heart,
+      title: "Hecho con amor",
+      description:
+        "Nuestros artesanos dan forma y decoran cada creación con atención meticulosa al detalle.",
+    },
+    {
+      icon: Award,
+      title: "Recetas de excelencia",
+      description:
+        "Nuestras recetas se perfeccionan constantemente para ofrecer sabores únicos e inolvidables.",
+    },
+    {
+      icon: Users,
+      title: "Enfoque en la comunidad",
+      description:
+        "Apoyamos a proveedores locales y participamos activamente en eventos de nuestra comunidad.",
+    },
+    {
+      icon: School,
+      title: "Apoyo en la formación de profesionales",
+      description:
+        "Aceptamos alumnos de diferentes universidades para realizar sus prácticas profesionales y desarrollarse en el ámbito académico y laboral.",
+    },
+  ];
 
   return (
-    <section ref={ref} className="py-20 px-6 bg-[var(--warm-gray)]">
-      <div className="max-w-6xl mx-auto">
+    <section ref={ref} className="py-32 md:py-48 px-6 lg:px-12 bg-secondary/30 relative">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-center mb-24 md:mb-32"
         >
-          <h2
-            className="text-4xl md:text-5xl text-[var(--burgundy)] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            How We Make It Happen
+          <span className="text-accent uppercase tracking-[0.2em] text-xs font-medium block mb-6">Nuestra Filosofía</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal text-primary mb-8 tracking-tight">
+            Cómo llevamos nuestra misión a la vida
           </h2>
-          <div className="w-24 h-1 bg-[var(--gold)] mx-auto" />
+          <div className="w-16 h-px bg-accent/30 mx-auto mb-10" />
+          <p className="text-foreground/80 font-normal text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Nuestro compromiso va más allá de las palabras. Así es como
+            implementamos nuestros valores cada día.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {values.map((value, index) => {
-            const Icon = value.icon;
-            return (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full relative"
+          >
+            <div className="aspect-[4/5] sm:aspect-square lg:aspect-[4/5] overflow-hidden rounded-[2px]">
+              <ImageWithFallback
+                src="/chef.jpg"
+                mobileSrc="/chef.webp"
+                alt="Repostera trabajando"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Features Flow */}
+          <div className="relative border-l-[0.5px] border-accent/20 pl-8 md:pl-12 py-4">
+            {features.map((feature, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow"
+                key={feature.title}
+                initial={{ opacity: 0, x: 30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 1, delay: 0.2 + index * 0.15, ease: "easeOut" }}
+                className="mb-16 last:mb-0 relative"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[var(--burgundy)]/10 rounded-full flex items-center justify-center">
-                    <Icon className="text-[var(--burgundy)]" size={24} />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-2xl text-[var(--burgundy)] mb-3"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      {value.title}
-                    </h3>
-                    <p
-                      className="text-[var(--dark-brown)]/80 leading-relaxed"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}
-                    >
-                      {value.description}
-                    </p>
-                  </div>
-                </div>
+                {/* Connector line and dot to the main border */}
+                <div className="absolute top-4 -left-[33px] md:-left-[49px] w-4 h-px bg-accent/40" />
+                <div className="absolute top-[14px] -left-[35px] md:-left-[51px] w-[5px] h-[5px] rounded-full bg-accent" />
+                
+                <feature.icon className="text-primary mb-6" size={32} strokeWidth={1} />
+                <h3 className="text-2xl font-serif text-primary mb-4 tracking-wide">
+                  {feature.title}
+                </h3>
+                <p className="text-foreground/80 font-normal text-base leading-relaxed max-w-md">
+                  {feature.description}
+                </p>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

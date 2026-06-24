@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { X, ChevronDown } from "lucide-react";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { ImageWithFallback } from "@/app/components/shared/figma/ImageWithFallback";
 
 type MenuItem = {
   name: string;
@@ -19,91 +19,39 @@ type MenuCategory = {
 };
 
 function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const hasDescription = !!item.description;
-  const hasImage = "image" in item && !!item.image;
-  const isExpandable = hasDescription || hasImage;
-
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.4,
-        delay: itemIndex * 0.05,
-      }}
-      className="group py-3 sm:py-4 first:pt-0 last:pb-0"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.8, delay: itemIndex * 0.05, ease: "easeOut" }}
+      className="py-6 first:pt-0 last:pb-0"
     >
-      {/* Name + Price row */}
-      <div
-        className={`flex items-baseline gap-2 ${isExpandable ? "cursor-pointer group/title" : ""}`}
-        onClick={() => {
-          if (isExpandable) setIsOpen(!isOpen);
-        }}
-      >
-        <h3 className="text-base sm:text-lg font-serif text-primary group-hover:text-accent transition-colors duration-300 shrink min-w-0">
+      <div className="flex items-baseline justify-between gap-4">
+        <h3 className="text-xl sm:text-2xl font-serif text-primary tracking-tight">
           {item.name}
         </h3>
-        {isExpandable && (
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-accent/60 group-hover/title:text-accent flex-shrink-0 self-center"
-          >
-            <ChevronDown size={16} />
-          </motion.div>
+        {item.price && (
+          <>
+            <span className="flex-1 border-b-[0.5px] border-dotted border-primary/20 relative top-[-6px] min-w-[2rem]" />
+            <span className="text-primary font-serif text-lg sm:text-xl tracking-wide shrink-0">
+              {item.price}
+            </span>
+          </>
         )}
-        <span className="flex-1 border-b border-dotted border-foreground/20 relative top-[-4px] min-w-[2rem] hidden sm:block" />
-        <span className="text-accent font-serif text-sm sm:text-base font-medium shrink-0 whitespace-nowrap ml-auto sm:ml-0">
-          {item.price}
-        </span>
       </div>
 
-      {/* ALWAYS VISIBLE SUB-DESCRIPTION */}
       {item.subDescription && (
-        <p className="text-foreground/50 text-xs sm:text-sm mt-0.5 leading-relaxed pl-0 whitespace-pre-line">
+        <p className="text-accent text-xs sm:text-sm uppercase tracking-[0.2em] mt-3 font-medium">
           {item.subDescription}
         </p>
       )}
 
-      {/* Description Card (Expandable) */}
-      <AnimatePresence>
-        {isOpen && isExpandable && (
-          <motion.div
-            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-            animate={{ opacity: 1, height: "auto", marginTop: 12 }}
-            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="py-3 px-4 bg-muted/40 border border-border/50 rounded-xl shadow-sm relative">
-              <div className="relative z-10">
-                {hasDescription && (
-                  <p className="text-foreground/80 text-sm leading-relaxed whitespace-pre-line">
-                    {item.description}
-                  </p>
-                )}
-
-                {/* Item Image */}
-                {hasImage && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="mt-3 overflow-hidden rounded-lg shadow-sm"
-                  >
-                    <ImageWithFallback
-                      src={item.image as string}
-                      alt={item.name}
-                      className="w-full max-w-sm h-48 object-cover"
-                    />
-                  </motion.div>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {item.description && (
+        <p className="text-foreground/80 font-normal text-sm sm:text-base mt-3 leading-loose whitespace-pre-line max-w-2xl">
+          {item.description}
+        </p>
+      )}
     </motion.div>
   );
 }
@@ -111,7 +59,6 @@ function MenuItemCard({ item, itemIndex }: { item: MenuItem; itemIndex: number }
 export function Menu() {
   const today = new Date().getDay();
 
-  // Imágenes por día de la semana (Domingo=0, Lunes=1, ..., Sábado=6)
   const dailyPromos = [
     "/promo-1.jpg",
     "/promo-1.jpg",
@@ -137,7 +84,6 @@ export function Menu() {
         "/menu/menu-111.jpg",
         "/menu/menu-100.jpg",
         "/menu/menu-7.jpg",
-
       ],
       items: [
         {
@@ -388,7 +334,7 @@ export function Menu() {
   ];
 
   return (
-    <div className="flex-1 flex flex-col pt-20 bg-secondary/50 overflow-x-hidden">
+    <div className="flex-1 flex flex-col bg-background overflow-x-hidden">
       <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -396,62 +342,65 @@ export function Menu() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-primary/40 backdrop-blur-md"
               onClick={() => setShowModal(false)}
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-sm rounded-2xl p-6 sm:p-8 z-10 text-center"
-            >
+              exit={{ opacity: 0, scale: 0.98, y: 10 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="relative w-full max-w-sm bg-card p-1 shadow-2xl z-10">
               <button
                 onClick={() => setShowModal(false)}
-                className="absolute right-0 top-3 text-white hover:text-foreground hover:bg-muted rounded-full transition-colors"
-                aria-label="Cerrar modal"
-              >
-                <X size={20} />
+                className="absolute -top-4 -right-4 w-10 h-10 bg-primary text-primary-foreground flex items-center justify-center rounded-full hover:bg-accent transition-colors shadow-lg z-20"
+                aria-label="Cerrar modal">
+                <X size={18} />
               </button>
-
-              <img
-                src={dailyPromos[today]}
-                alt="Especial del día"
-                className="w-full h-auto rounded-xl shadow-sm mb-6 object-cover"
-              />
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowModal(false)}
-                className="w-full py-3 bg-accent text-white rounded-full text-sm font-semibold tracking-wide shadow-md hover:shadow-lg transition-all"
-              >
-                Entendido
-              </motion.button>
+              <div className="border-[0.5px] border-accent/20 p-2 pb-6">
+                <div className="relative w-full max-h-[60vh] sm:max-h-[65vh] flex justify-center items-center bg-muted/40 mb-6 overflow-hidden rounded-[2px]">
+                  <img
+                    src={dailyPromos[today]}
+                    alt="Especial del día"
+                    className="max-h-[60vh] sm:max-h-[65vh] w-auto h-auto object-contain"
+                  />
+                </div>
+                <div className="text-center px-6">
+                  <h4 className="text-2xl font-serif text-primary mb-2">Especial del día</h4>
+                  <div className="w-12 h-[1px] bg-accent/40 mx-auto mb-6" />
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="inline-block px-8 py-3 border-[0.5px] border-primary text-primary text-[10px] tracking-[0.2em] uppercase hover:bg-primary hover:text-primary-foreground transition-colors duration-500"
+                  >
+                    Entendido
+                  </button>
+                </div>
+              </div>
             </motion.div>
           </div>
-        )}
+        )} 
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-secondary/50 to-background">
+      <section className="relative pt-40 pb-24 px-6 bg-secondary/20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <p className="text-accent tracking-[0.3em] uppercase text-sm mb-4 font-medium">
+            <p className="text-accent tracking-[0.3em] uppercase text-xs sm:text-sm mb-6 font-medium">
               Elaborado con Pasión
             </p>
-            <h1 className="text-5xl md:text-6xl font-serif text-primary mb-6">
+            <h1 className="text-5xl md:text-7xl font-serif font-light text-primary mb-8 tracking-tight">
               Nuestro Menú
             </h1>
-            <div className="w-24 h-[1px] bg-accent mx-auto mb-8" />
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <div className="w-16 h-[1px] bg-accent/50 mx-auto mb-10" />
+            <p className="text-lg text-foreground/80 max-w-xl mx-auto font-normal leading-relaxed">
               Descubre nuestros pasteles y postres de autor elaborados con los
               mejores ingredientes.
             </p>
-            <p className="text-lg text-foreground/70 font-bold max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-accent uppercase tracking-widest mt-8 font-medium">
               Disponibles siempre en tienda*
             </p>
           </motion.div>
@@ -459,150 +408,123 @@ export function Menu() {
       </section>
 
       {/* Menu Categories */}
-      <section className="py-12 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-24 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
           {menuCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.05 }}
-              className="mb-20 last:mb-0"
-            >
-              {/* Section Header */}
-              <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-serif text-primary mb-3">
+            <div key={category.title} className="mb-32 md:mb-48 last:mb-0">
+              
+              {/* Category Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="mb-16 md:mb-24 flex flex-col items-center text-center"
+              >
+                <h2 className="text-4xl md:text-6xl font-serif text-primary font-normal tracking-tight mb-4">
                   {category.title}
                 </h2>
-                <p className="text-foreground/60 text-sm tracking-wide">
-                  {category.description}
-                </p>
-                <div className="w-16 h-[1px] bg-accent/40 mx-auto mt-4" />
-              </div>
+                {category.description && (
+                  <p className="text-foreground/60 text-sm sm:text-base font-medium uppercase tracking-[0.15em] max-w-2xl mt-4">
+                    {category.description}
+                  </p>
+                )}
+                <div className="w-px h-16 bg-accent/30 mt-10" />
+              </motion.div>
 
-              {/* Content: Items + Images */}
-              <div
-                className={`flex flex-col ${category.sectionImages.length > 0
-                  ? categoryIndex % 2 === 0
-                    ? "sm:flex-row"
-                    : "sm:flex-row-reverse"
-                  : ""
-                  } gap-4 sm:gap-6 lg:gap-10 items-stretch`}
-              >
+              {/* Category Content: Items + Editorial Images */}
+              <div className={`flex flex-col ${categoryIndex % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-16 lg:gap-24 items-start`}>
+                
                 {/* Items List */}
-                <div
-                  className={`flex-1 min-w-0 ${category.sectionImages.length > 0 ? "" : "w-full"
-                    }`}
-                >
-                  {category.items.map((item, itemIndex) => (
-                    <MenuItemCard key={item.name} item={item} itemIndex={itemIndex} />
-                  ))}
+                <div className={`w-full ${category.sectionImages.length > 0 ? "lg:w-6/12 xl:w-7/12" : "max-w-4xl mx-auto"}`}>
+                  <div className="space-y-6">
+                    {category.items.map((item, itemIndex) => (
+                      <MenuItemCard key={item.name} item={item} itemIndex={itemIndex} />
+                    ))}
+                  </div>
                 </div>
 
-                {/* Section Images - always to the side, matching text height */}
+                {/* Editorial Image Collage */}
                 {category.sectionImages.length > 0 && (
-                  <div
-                    className={`shrink-0 gap-3 sm:gap-4 ${category.sectionImages.length >= 4
-                      ? 'w-full sm:w-[350px] md:w-[450px] lg:w-1/2 flex flex-col sm:grid sm:grid-cols-2 auto-rows-fr'
-                      : 'w-full sm:w-[250px] md:w-[350px] lg:w-[45%] flex flex-col'
-                      }`}
-                  >
+                  <div className="w-full lg:w-6/12 xl:w-5/12 grid gap-4 grid-cols-2 relative sticky top-32">
                     {category.sectionImages.map((img, imgIndex) => {
-                      const isMosaic = category.sectionImages.length >= 4;
-
-                      let gridClasses = 'flex-1 min-h-0';
-                      if (isMosaic) {
-                        if (category.sectionImages.length === 4) {
-                          // 4 images: A clean flex stack on mobile, 2x2 grid on desktop
-                          gridClasses = 'flex-1 sm:col-span-1 sm:row-span-1';
-                        } else {
-                          // 5+ images: fallback
-                          gridClasses = 'flex-1 sm:col-span-1 sm:row-span-1';
-                        }
-                      }
+                      // Organic Masonry Logic
+                      const isLarge = imgIndex === 0;
+                      const isOffset = imgIndex % 2 !== 0;
 
                       return (
                         <motion.div
                           key={imgIndex}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
-                          transition={{
-                            duration: 0.6,
-                            delay: 0.2 + imgIndex * 0.15,
-                          }}
-                          className={`relative overflow-hidden rounded-lg sm:rounded-xl h-48 sm:h-auto min-h-[100px] sm:min-h-[140px] ${gridClasses} ${isMosaic && imgIndex >= 2 ? 'hidden sm:block' : ''
-                            }`}
+                          transition={{ duration: 1, delay: 0.2 + imgIndex * 0.1, ease: "easeOut" }}
+                          className={`
+                            ${isLarge ? "col-span-2 aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3]" : "col-span-1 aspect-[3/4]"}
+                            ${isOffset && !isLarge ? "mt-12" : ""}
+                            relative overflow-hidden rounded-[2px] shadow-[0_10px_40px_-15px_rgba(70,59,41,0.05)]
+                          `}
                         >
                           <ImageWithFallback
                             src={img}
-                            alt={`${category.title} image ${imgIndex + 1}`}
-                            className="w-full h-full object-cover absolute inset-0"
+                            alt={`${category.title} - imagen ${imgIndex + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                         </motion.div>
                       );
                     })}
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
-      <div className="flex items-center justify-center">
-        <p className="text-foreground/50 font-bold text-xs sm:text-sm mt-1 leading-relaxed pl-0">
+      {/* Decorative footer text */}
+      <div className="flex flex-col items-center justify-center pb-24 text-center">
+        <div className="w-px h-16 bg-accent/30 mb-8" />
+        <p className="text-foreground/40 text-[10px] sm:text-xs uppercase tracking-[0.2em]">
           * Todos los precios incluyen IVA
         </p>
       </div>
 
-      {/* Decorative divider before CTA */}
-      <div className="flex items-center justify-center py-8">
-        <div className="w-2 h-2 rounded-full bg-accent/30" />
-        <div className="w-24 h-[1px] bg-accent/20 mx-3" />
-        <div className="w-3 h-3 rounded-full bg-accent/50" />
-        <div className="w-24 h-[1px] bg-accent/20 mx-3" />
-        <div className="w-2 h-2 rounded-full bg-accent/30" />
-      </div>
-
-      {/* Call to Action */}
-      <section className="py-20 px-6 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Call to Action - Magazine Style */}
+      <section className="py-32 px-6 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <h2 className="text-4xl font-serif mb-6">¿Listo para pedir?</h2>
-            <p className="text-lg mb-8 text-primary-foreground/90">
+            <h2 className="text-5xl md:text-7xl font-serif font-light mb-10 tracking-tight">¿Listo para pedir?</h2>
+            <p className="text-lg md:text-xl font-light mb-16 text-primary-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Haz tu pedido por WhatsApp o visítanos en cualquiera de nuestras
               sucursales. También aceptamos pedidos especiales para eventos y
               celebraciones.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <motion.a
                 href="https://wa.me/message/T6HH3Y6V4TSUA1"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-5 sm:px-10 sm:py-5 bg-accent text-white rounded-full text-xs sm:text-sm font-medium uppercase tracking-[0.2em] shadow-2xl hover:shadow-accent/20 transition-all w-full sm:w-auto"
               >
                 Pedir por WhatsApp
               </motion.a>
               <motion.a
                 href="/location"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground rounded-full text-lg hover:bg-primary-foreground/10 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-5 sm:px-10 sm:py-5 bg-transparent border-[0.5px] border-primary-foreground/30 text-primary-foreground rounded-full text-xs sm:text-sm font-medium uppercase tracking-[0.2em] hover:bg-primary-foreground/5 transition-all w-full sm:w-auto"
               >
                 Ver ubicaciones
               </motion.a>
             </div>
-            <div className="w-36 h-[1px] bg-accent mx-auto mt-16" />
           </motion.div>
         </div>
       </section>

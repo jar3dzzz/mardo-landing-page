@@ -1,48 +1,72 @@
 import { motion } from "motion/react";
-import { useInView } from "../hooks/use-in-view";
+import { useInView } from "@/app/hooks/use-in-view";
 
 export function Mission() {
-  const { ref, inView } = useInView();
+  const { ref, isInView } = useInView();
+
+  const values = [
+    {
+      title: "Autenticidad",
+      description:
+        "Honramos las técnicas Francesas que nos inspiran, asegurándonos de que cada bocado sea auténtico y lleno de sabor.",
+    },
+    {
+      title: "Calidad",
+      description:
+        "Solo los mejores ingredientes llegan a nuestra cocina, seleccionados cuidadosamente de proveedores de confianza.",
+    },
+    {
+      title: "Pasión",
+      description:
+        "Nuestros reposteros ponen el corazón en cada creación, tratando cada postre como una obra de arte.",
+    },
+  ];
 
   return (
-    <section ref={ref} className="py-20 px-6 bg-white">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <h2
-            className="text-4xl md:text-5xl text-[var(--burgundy)] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+    <section ref={ref} className="py-32 md:py-48 px-6 lg:px-12 bg-background relative">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+          
+          {/* Header Side */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="lg:col-span-5 flex flex-col justify-center"
           >
-            Our Mission
-          </h2>
-          <div className="w-24 h-1 bg-[var(--gold)] mx-auto mb-8" />
-        </motion.div>
+            <span className="text-accent uppercase tracking-[0.2em] text-xs font-medium block mb-6">Nuestra Misión</span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-normal text-primary mb-10 tracking-tight leading-tight">
+              Crear instantes <br className="hidden sm:block"/> inolvidables
+            </h2>
+            <div className="w-16 h-px bg-accent/30 mb-10" />
+            <p className="text-foreground/80 font-normal text-lg md:text-xl leading-relaxed max-w-md">
+              En MARDÓ, nuestra misión es crear repostería artesanal que haga
+              especial cada momento. Creemos que cada postre cuenta una
+              historia, y nos dedicamos a que cada uno sea inolvidable.
+            </p>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl text-[var(--dark-brown)]/80 leading-relaxed mb-6"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        >
-          At Maison de Délice, our mission is to bring joy and warmth to every table through
-          the art of traditional French baking. We believe that great pastries are more than
-          just food—they're an experience that creates memories and brings people together.
-        </motion.p>
+          {/* Values Side */}
+          <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
+            {values.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 1, delay: 0.3 + index * 0.2, ease: "easeOut" }}
+                className="py-10 border-b-[0.5px] border-accent/20 last:border-0 relative group"
+              >
+                <h3 className="text-3xl font-serif text-primary mb-4 transition-colors duration-500 group-hover:text-accent tracking-wide">
+                  {item.title}
+                </h3>
+                <p className="text-foreground/80 font-normal text-base leading-relaxed max-w-lg">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl text-[var(--dark-brown)]/80 leading-relaxed"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        >
-          We are committed to using only the finest, locally-sourced ingredients and
-          time-honored techniques passed down through generations of master bakers.
-        </motion.p>
+        </div>
       </div>
     </section>
   );
